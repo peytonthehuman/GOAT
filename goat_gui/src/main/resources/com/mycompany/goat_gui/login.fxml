@@ -27,7 +27,7 @@
       <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <Button mnemonicParsing="false" text="Login" />
+            <Button mnemonicParsing="false" onAction="#SwitchToProfile" text="Login" />
             <Button mnemonicParsing="false" onAction="#SwitchToSignup" text="SignUp" />
          </children>
       </HBox>

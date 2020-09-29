@@ -1,9 +1,5 @@
 package com.mycompany.goat_gui;
 
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
-import javafx.event.ActionEvent;
-
 import java.io.IOException;
 import javafx.fxml.FXML;
 
@@ -13,4 +9,13 @@ public class LoginController {
         App.setRoot("signup");
     }
     
+    @FXML
+    private void SwitchToProfile() throws IOException {
+        App.setRoot("profile");
+    }
+    
+    @FXML
+    private void CheckCredentials() throws IOException {
+        
+    }
 }

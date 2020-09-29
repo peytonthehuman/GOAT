@@ -4,8 +4,9 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 
 public class SignupController {
+
     @FXML
-    private void CreateProfile () throws IOException{
-    
+    private void SwitchToProfile() throws IOException {
+        App.setRoot("profile");
     }
 }
