@@ -1,17 +1,37 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>
+<?php
+	$file = fopen(".\data_sources\imdb.tsv", 'r');
+	$genrefile = fopen("genre.csv", 'w') or die("Unable to open file!");
+	
+	$genreArray = array();
+	if($file) {
+		fgets($file);
+		while(($line = fgets($file)) !== false) {
+			$exline = explode("	", $line);
+			if(($exline[4] !== '1') && ($exline[1] == 'movie')) {
+				$tempGenreList = explode(",", $exline[8]);
+				foreach($tempGenreList as $genre) {
+					if(!(array_key_exists($genre, $genreArray))) {
+						$genreArray[$genre] = 1;
+					} else {
+						$genreArray[$genre] = $genreArray[$genre] + 1;
+					}
+				}
+			}
+		}
+		
+		fwrite($genrefile, 'GENRE,OCCURANCE' . PHP_EOL);
+		
+		foreach(array_keys($genreArray) as $genre) {
+			$writeString = str_replace("\n", "", $genre);
+			$writeString .= ',';
+			$writeString .= $genreArray[$genre];
+			fwrite($genrefile, $writeString);
+			fwrite($genrefile, PHP_EOL);
+		}
+		
+		fclose($genrefile);
+		fclose($file);
+	} else {
+		print("error");
+	}
+?>
