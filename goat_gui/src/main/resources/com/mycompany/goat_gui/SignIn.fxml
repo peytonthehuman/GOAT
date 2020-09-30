@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="287.0" prefWidth="734.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="484.0" layoutY="11.0" prefHeight="265.0" prefWidth="203.0" style="-fx-background-color: #9C2827;">
+         <children>
+            <TextField layoutX="28.0" layoutY="90.0" promptText="username" style="-fx-background-color: #b11a1a;" />
+            <TextField layoutX="27.0" layoutY="137.0" promptText="password" style="-fx-background-color: #b11a1a;" />
+            <Button layoutX="57.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #680000;" text="Sign In" textFill="#eed5d5" />
+            <Button layoutX="58.0" layoutY="227.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #680000;" text="Sign Up" textFill="#eed5d5" />
+            <Label layoutX="47.0" layoutY="14.0" text="Sign In" textFill="#eed5d5">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="287.0" fitWidth="444.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../java/com/mycompany/goat_gui/images/Canva%20-%20Sheep.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="263.0" layoutY="49.0" text="Do you crave that mineral?" textFill="#b9aeae">
+         <font>
+            <Font name="Bodoni MT" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="14.0" text="Welcome to G.O.A.T" textFill="#24628f">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
