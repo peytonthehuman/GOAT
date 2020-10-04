@@ -10,10 +10,11 @@
 			if(($exline[4] !== '1') && ($exline[1] == 'movie')) {
 				$tempGenreList = explode(",", $exline[8]);
 				foreach($tempGenreList as $genre) {
-					if(!(array_key_exists($genre, $genreArray))) {
-						$genreArray[$genre] = 1;
+					$genreClean = str_replace("\n", "", $genre);
+					if(!(array_key_exists($genreClean, $genreArray))) {
+						$genreArray[$genreClean] = 1;
 					} else {
-						$genreArray[$genre] = $genreArray[$genre] + 1;
+						$genreArray[$genreClean] = $genreArray[$genreClean] + 1;
 					}
 				}
 			}
