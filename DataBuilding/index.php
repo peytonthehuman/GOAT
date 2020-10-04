@@ -1,5 +1,5 @@
 <?php
-	$file = fopen(".\data_sources\imdb.tsv", 'r');
+	$file = fopen("..\..\dataSources\imdb.tsv", 'r');
 	$genrefile = fopen("genre.csv", 'w') or die("Unable to open file!");
 	
 	$genreArray = array();
