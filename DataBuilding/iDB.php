@@ -5,34 +5,30 @@
 		return $file;
 	}
 	
-	function SQLtoDB($dbObj, $sql) {
-		return NULL;
-	}
-	
 	# Specific Functions:
-	function parseTSV($data) {
-		
-	}
-	
-	function parseCSV($data) {
-		return NULL;
-	}
-	
-	function writeLinestoDB($dbObj, $indexArray, $dataArray) {
-		
-	}
-	
-	function readLinesFromDB($dbObj, $indexArray) {
-		
+	function parseTSVLine($data) {
+		$line = explode("	", $data);
+		foreach($line as $cell) {
+			$cell = str_replace("\n", "", $cell);
+		}
+		return $line;
 	}
 	
 	function readNextLineFromDB($dbObj) {
-		var $line;
+		$line;
 		
-		if(($line = fgets($file)) !== false) {
+		if(($line = fgets($dbObj)) !== false) {
 			#send error
 		}
 		
 		return $line;
+	}
+	
+	function writeLinestoDB($dbObj, $dataArray) {
+		
+	}
+	
+	function disconnectFromDB($dbObj) {
+		fclose($dbObj);
 	}
 ?>

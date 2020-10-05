@@ -3,6 +3,7 @@
 	$dataSourcePath = "..\\..\\dataSources\\";
 	
 	$mediaArray = array();
+	$movieArray = array();
 	$bookArray = array();
 	$vgameArray = array();
 	
@@ -10,18 +11,23 @@
 	$keywordArray = array();
 	
 	# includes
-	include 'movie_source.php';
-	include 'book_source.php';
-	include 'vgame_source.php';
 	include 'iDB.php';
+	include 'movie_source.php';
+	//include 'book_source.php';
+	//include 'vgame_source.php';
 	
 	# Run Movie Code
+	openMovieSourceConn();
+	print(parseDataArrayLine(array()));
+	closeMovieSourceConn();
 	
 	# Run Book Code
 	
 	# Run VGame Code
 	
 	# Write To Database
+	
+	/*
 	
 	$file = fopen("..\..\dataSources\imdb.tsv", 'r');
 	$genrefile = fopen("genre.csv", 'w') or die("Unable to open file!");
@@ -58,5 +64,10 @@
 		fclose($file);
 	} else {
 		print("error");
+	}*/
+	
+	$test = connectToDB($dataSourcePath . "imdb.tsv", 'r');
+	for($i = 0; $i < 5; $i++) {
+		print_r(parseTSVLine(readNextLineFromDB($test)));
 	}
 ?>
