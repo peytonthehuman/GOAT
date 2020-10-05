@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -20,24 +21,82 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <HBox layoutX="90.0" layoutY="93.0" prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <HBox alignment="CENTER" layoutX="90.0" layoutY="93.0" prefHeight="371.0" prefWidth="600.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="30.0">
+                              <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="190.0" spacing="20.0">
                                  <children>
+                                    <VBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="X" />
+                                       </children>
+                                    </VBox>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
                                     </ImageView>
-                                    <CheckBox mnemonicParsing="false" text="Seen it!" />
-                                    <HBox prefHeight="30.0" prefWidth="200.0" spacing="10.0">
+                                    <TextArea prefHeight="32.0" prefWidth="200.0" />
+                                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0" spacing="10.0">
                                        <children>
                                           <Label text="Rating:" />
-                                          <ChoiceBox prefWidth="100.0" />
+                                          <ChoiceBox prefWidth="35.0" />
                                        </children>
                                     </HBox>
-                                    <Button mnemonicParsing="false" text="New Media" />
+                                    <CheckBox mnemonicParsing="false" text="Seen it!" />
                                  </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="190.0" spacing="20.0">
+                                 <children>
+                                    <VBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="X" />
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <TextArea prefHeight="32.0" prefWidth="200.0" />
+                                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Rating:" />
+                                          <ChoiceBox prefWidth="35.0" />
+                                       </children>
+                                    </HBox>
+                                    <CheckBox mnemonicParsing="false" text="Seen it!" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="TOP_CENTER" layoutX="200.0" layoutY="10.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="190.0" spacing="20.0">
+                                 <children>
+                                    <VBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="X" />
+                                       </children>
+                                    </VBox>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <TextArea prefHeight="32.0" prefWidth="200.0" />
+                                    <HBox alignment="CENTER" prefHeight="30.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <Label text="Rating:" />
+                                          <ChoiceBox prefWidth="35.0" />
+                                       </children>
+                                    </HBox>
+                                    <CheckBox mnemonicParsing="false" text="Seen it!" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
                               </VBox>
                            </children>
                         </HBox>
@@ -49,33 +108,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <HBox layoutX="52.0" layoutY="86.0" prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="30.0">
-                                 <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                    <CheckBox mnemonicParsing="false" text="Seen it!" />
-                                    <ChoiceBox prefWidth="150.0" />
-                                    <Button mnemonicParsing="false" text="New Media" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="30.0">
-                                 <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                    <CheckBox mnemonicParsing="false" text="Seen it!" />
-                                    <ChoiceBox prefWidth="150.0" />
-                                    <Button mnemonicParsing="false" text="New Media" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="30.0">
-                                 <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                    <CheckBox mnemonicParsing="false" text="Seen it!" />
-                                    <ChoiceBox prefWidth="150.0" />
-                                    <Button mnemonicParsing="false" text="New Media" />
-                                 </children>
-                              </VBox>
-                           </children></HBox>
+                        <HBox layoutX="52.0" layoutY="86.0" prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
             </content>
@@ -84,33 +117,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <HBox layoutX="130.0" layoutY="86.0" prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <children>
-                              <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="200.0" spacing="30.0">
-                                 <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                    <CheckBox mnemonicParsing="false" text="Seen it!" />
-                                    <ChoiceBox prefWidth="150.0" />
-                                    <Button mnemonicParsing="false" text="New Media" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" spacing="30.0">
-                                 <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                    <CheckBox mnemonicParsing="false" text="Seen it!" />
-                                    <ChoiceBox prefWidth="150.0" />
-                                    <Button mnemonicParsing="false" text="New Media" />
-                                 </children>
-                              </VBox>
-                              <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" spacing="30.0">
-                                 <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                    <CheckBox mnemonicParsing="false" text="Seen it!" />
-                                    <ChoiceBox prefWidth="150.0" />
-                                    <Button mnemonicParsing="false" text="New Media" />
-                                 </children>
-                              </VBox>
-                           </children></HBox>
+                        <HBox layoutX="130.0" layoutY="86.0" prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
                </content>
