@@ -22,7 +22,7 @@ public class SignupController {
             //dynamically allocate profile for user.
             
             //send them to their new profile page.
-            Parent profileParent = FXMLLoader.load(getClass().getResource("profile.fxml"));
+            Parent profileParent = FXMLLoader.load(getClass().getResource("mediaTest.fxml"));
             Scene profileScene = new Scene(profileParent);
             
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
