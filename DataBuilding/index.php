@@ -1,4 +1,19 @@
 <?php
+	include 'movie_source.php';
+	include 'book_source.php';
+	include 'vgame_source.php';
+	include 'data_toDB.php';
+	
+	# Setup
+	
+	# Run Movie Code
+	
+	# Run Book Code
+	
+	# Run VGame Code
+	
+	# Write To Database
+	
 	$file = fopen("..\..\dataSources\imdb.tsv", 'r');
 	$genrefile = fopen("genre.csv", 'w') or die("Unable to open file!");
 	
