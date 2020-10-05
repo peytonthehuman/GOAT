@@ -1,10 +1,19 @@
 <?php
+	# Setup
+	$dataSourcePath = "..\\..\\dataSources\\";
+	
+	$mediaArray = array();
+	$bookArray = array();
+	$vgameArray = array();
+	
+	$genreArray = array();
+	$keywordArray = array();
+	
+	# includes
 	include 'movie_source.php';
 	include 'book_source.php';
 	include 'vgame_source.php';
-	include 'data_toDB.php';
-	
-	# Setup
+	include 'iDB.php';
 	
 	# Run Movie Code
 	
