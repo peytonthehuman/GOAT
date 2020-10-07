@@ -73,7 +73,7 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <DatePicker promptText="birthday" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <DatePicker fx:id="birthdayPicker" promptText="birthday" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                         <Label text="FirstName:" GridPane.rowIndex="3">
                            <font>
                               <Font size="24.0" />
@@ -84,8 +84,8 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <TextField promptText="first name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField promptText="last name" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <TextField fx:id="firstNameTextField" promptText="first name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="lastNameTextField" promptText="last name" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
