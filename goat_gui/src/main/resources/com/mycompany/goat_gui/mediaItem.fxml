@@ -51,7 +51,7 @@
                      <items>
                         <MenuItem mnemonicParsing="false" text="Preferences" />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Sign Out" />
+                        <MenuItem mnemonicParsing="false" text="Log Out" />
                      </items>
                   </SplitMenuButton>
                </graphic>
