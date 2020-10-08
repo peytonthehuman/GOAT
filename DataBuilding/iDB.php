@@ -1,31 +1,45 @@
 <?php
 	# iDB.php
 	function connectToDB($dbName, $flag) {
-		$file = fopen($dbName, $flag) or die("Unable to connect to DB");
+		$file = fopen($dbName, $flag);
 		return $file;
 	}
 	
 	# Specific Functions:
-	function parseTSVLine($data) {
-		$line = explode("	", $data);
-		foreach($line as $cell) {
-			$cell = str_replace("\n", "", $cell);
+	function cleanStrArray($strArray) {
+		$newline = array();
+		foreach($strArray as $cell) {
+			array_push($newline, rtrim($cell));
 		}
-		return $line;
+		return $newline;
+	}
+	
+	function parseTSVLine($data) {
+		$line = explode("\t", $data);
+		return cleanStrArray($line);
+	}
+	
+	function parseCSVLine($data) {
+		$line = explode(",", $data);
+		return cleanStrArray($line);
 	}
 	
 	function readNextLineFromDB($dbObj) {
-		$line;
-		
-		if(($line = fgets($dbObj)) !== false) {
-			#send error
-		}
-		
-		return $line;
+		return fgets($dbObj);
 	}
 	
-	function writeLinestoDB($dbObj, $dataArray) {
+	function writeLinetoDB($dbObj, $dataArray) {
+		$writeString = "";
 		
+		foreach($dataArray as $data) {
+			$writeString .= $data;
+			$writeString .= ',';
+		}
+		
+		$writeString = rtrim($writeString, ',');
+		
+		fwrite($dbObj, $writeString);
+		fwrite($dbObj, PHP_EOL);
 	}
 	
 	function disconnectFromDB($dbObj) {
