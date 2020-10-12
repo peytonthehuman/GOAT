@@ -5,22 +5,45 @@
 	$movieGenreArray = array();
 	$movieKeywordArray = array();
 	
+	$wmddb;
+	$wmvdb;
+	
 	$movieSourcesConnArray = array();
 	
 	# Functions
 	function openMovieSourceConn() {
-		global $dataSourcePath, $movieSourcesConnArray;
+		global $dataSourcePath, $movieSourcesConnArray, $wmddb, $wmvdb;
 		$path = $dataSourcePath . 'title.basics.tsv\data.tsv';
 		print($path);
 		$movieSourcesConnArray["IMDB"] = connectToDB($path, 'r');
+		$wmddb = connectToDB($dataSourcePath . 'media.csv', 'w');
+		$wmvdb = connectToDB($dataSourcePath . 'movie.csv', 'w');
+	}
+	
+	function writeMovie($id, $title, $release, $duration, $prodArray, $actArray, $genreArray, $keywordArray) {
+		global $wmddb, $wmvdb, $genreFile;
+		writeLinetoDB($wmddb,
+			[rtrim($id),
+			 rtrim($title),
+			 rtrim($release),
+			 '2',
+			 'NA']);
+		
+		writeLinetoDB($wmvdb,
+			[rtrim($id),
+			 rtrim($duration),
+			 'NA',
+			 'NA']);
+			 
+		foreach($genreArray as $genre) {
+			writeLinetoDB($genreFile, [$id, $genre]);
+		}
 	}
 	
 	function parseMovieData() {
-		global $movieSourcesConnArray, $movieGenreArray, $movieKeywordArray;
+		global $movieSourcesConnArray, $movieGenreArray, $movieKeywordArray, $wmddb, $wmvdb;
 		
 		$rdb = $movieSourcesConnArray["IMDB"];
-		$wmddb = connectToDB('media.csv', 'w');
-		$wmvdb = connectToDB('movie.csv', 'w');
 		
 		readNextLineFromDB($rdb);
 		
@@ -37,28 +60,22 @@
 					}
 				}
 				
-				writeLinetoDB($wmddb,
-					[rtrim($exline[0]),
-					 rtrim($exline[2]),
-					 rtrim($exline[5]),
-					 '2',
-					 'NA']);
-				
-				writeLinetoDB($wmvdb,
-					[rtrim($exline[0]),
-					 rtrim($exline[7]),
-					 'NA',
-					 'NA']);
+				writeMovie($exline[0],
+						   $exline[2],
+						   $exline[5],
+						   $exline[7],
+						   0, 0, $tempGenreList, 0);
 			}
 		}
-		
-		disconnectFromDB($wmddb);
-		disconnectFromDB($wmvdb);
 	}
 	
 	function closeMovieSourceConn() {
-		global $movieSourcesConnArray;
+		global $movieSourcesConnArray, $wmddb, $wmvdb;
 		disconnectFromDB($movieSourcesConnArray["IMDB"]);
 		$movieSourcesConnArray["IMDB"] = NULL;
+		disconnectFromDB($wmddb);
+		$wmddb = NULL;
+		disconnectFromDB($wmvdb);
+		$wmvdb = NULL;
 	}
 ?>

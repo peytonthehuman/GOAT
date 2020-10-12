@@ -2,11 +2,20 @@
 	# Setup
 	$dataSourcePath = "..\\..\\dataSources\\";
 	
-	$genreArray = array();
-	$keywordArray = array();
+	$genreOccArray = array();
+	$keywordOccArray = array();
 	
-	# includes
+	# includes interface
 	include 'iDB.php';
+
+	$genreFile = connectToDB($dataSourcePath . 'genre.csv', 'w');
+	
+	if($genreFile == NULL) {
+		print("Can't open genre file");
+		exit();
+	}
+	
+	# includes sources
 	include 'movie_source.php';
 	//include 'book_source.php';
 	//include 'vgame_source.php';
@@ -20,15 +29,18 @@
 	
 	# Run VGame Code
 	
+	# Exit Genre Table
+	disconnectFromDB($genreFile);
+	
 	# Merge Genre & keywords lists
 	
 	# Write Genre & Keywords To Database
-	$genreArray = $movieGenreArray;
-	$genreFile = connectToDB('genre.csv', 'w');
+	$genreOccArray = $movieGenreArray;
+	$genreOccFile = connectToDB('genreOcc.csv', 'w');
 	
-	writeLinetoDB($genreFile, ['GENRE', 'OCCURANCE']);
+	writeLinetoDB($genreOccFile, ['GENRE', 'OCCURANCE']);
 		
-	foreach(array_keys($genreArray) as $genre) {
-		writeLinetoDB($genreFile, [$genre, $genreArray[$genre]]);
+	foreach(array_keys($genreOccArray) as $genre) {
+		writeLinetoDB($genreOccFile, [$genre, $genreOccArray[$genre]]);
 	}
 ?>
