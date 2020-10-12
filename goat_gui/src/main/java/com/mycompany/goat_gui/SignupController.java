@@ -28,6 +28,8 @@ import javafx.stage.Stage;
 import javax.net.ssl.HttpsURLConnection;
 
 import java.net.*; 
+import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 
 
 public class SignupController {
@@ -37,7 +39,10 @@ public class SignupController {
     @FXML private PasswordField passwordPassField;
     @FXML private TextField firstNameTextField;
     @FXML private TextField lastNameTextField;
+    @FXML private Label errorTextField;
+
     @FXML private DatePicker birthdayPicker;
+    private boolean canSignUp = true;
 
 
     
@@ -50,23 +55,42 @@ public class SignupController {
             Scene profileScene = new Scene(profileParent);
             
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+          
+           TextField o[] = {emailTextField,usernameTextField,passwordPassField,firstNameTextField,lastNameTextField};
+           
+           //check for empty textfields
+            for(TextField txt : o)
+            {
+                if(txt.getText().isEmpty())
+                {
+                    canSignUp = false;
+                }
+            }
+           //check for bday picker to be empty
+            if(birthdayPicker == null)
+            {
+                canSignUp = false;
+
+            }
             
-            window.setScene(profileScene);
-            window.show();
-            System.out.println(usernameTextField.getText());
-            System.out.println(birthdayPicker.getValue().toString());
             
-            CreateProfile(emailTextField.getText(),usernameTextField.getText(),passwordPassField.getText(),
+            if(canSignUp)
+            {
+            
+               CreateProfile(emailTextField.getText(),usernameTextField.getText(),passwordPassField.getText(),
                           firstNameTextField.getText(),lastNameTextField.getText(),birthdayPicker.getValue().toString());
+               //show profile
+               window.setScene(profileScene);
+               window.show();
             
-        /*}
-        else if (!usernameAvailable()) {
-            //prompt user to enter different username as it is taken
-        }
-        else if (!emailAvailable()){
-            //prompt user to enter different email, as it is already
-            //in use
-        }*/
+            }
+            else 
+            {
+                errorTextField.setTextFill(Color.web("#ff0000"));
+                errorTextField.setText("Must fill out all fields");
+                canSignUp = true;
+            }
+        
     }
     
     
@@ -75,14 +99,11 @@ public class SignupController {
     {
         
     
-        
-       
-        
         URL url = new URL("http://www.peytonlwhite.com/blog/signup");
         
        
         HttpURLConnection http = (HttpURLConnection) url.openConnection();
-        http.setRequestMethod("POST"); // PUT is another valid option
+        http.setRequestMethod("POST"); 
         http.setDoOutput(true);
         
         
