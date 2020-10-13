@@ -40,8 +40,14 @@ public class ProfileController {
         
     }
     
-    
-
-
+    public void onLogoutPressed(ActionEvent event) throws IOException {
+        Parent profileParent = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene profileScene = new Scene(profileParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(profileScene);
+        window.show();
+    }
 }
 

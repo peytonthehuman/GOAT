@@ -21,12 +21,12 @@
          <menus>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <Button mnemonicParsing="false" text="Home" />
+                  <Button mnemonicParsing="false" onAction="#onHomePressed" text="Home" />
                </graphic>
             </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <TextField promptText="Go on and try!" />
+                  <TextField onAction="#onSearchEntered" promptText="Go on and try!" />
                </graphic>
             </Menu>
             <Menu mnemonicParsing="false">
@@ -34,7 +34,7 @@
                   <SplitMenuButton mnemonicParsing="false" onAction="#onProfilePressed" text="Profile">
                      <items>
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Log Out" />
+                        <MenuItem mnemonicParsing="false" onAction="#onLogoutPressed" text="Log Out" />
                      </items>
                   </SplitMenuButton>
                </graphic>

@@ -17,8 +17,8 @@ import javafx.stage.Stage;
  *
  * @author Sean
  */
-public class MediaItemController {
-        
+public class SearchListController {
+       
     public void onHomePressed(ActionEvent event) throws IOException {      
         Parent profileParent = FXMLLoader.load(getClass().getResource("home.fxml"));
         Scene profileScene = new Scene(profileParent);
