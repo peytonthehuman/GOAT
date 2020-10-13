@@ -57,6 +57,11 @@
                         </HBox>
                         <TextField fx:id="usernameTextField" promptText="username" GridPane.columnIndex="1" />
                         <PasswordField fx:id="passwordPassField" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="errorlabel" prefHeight="29.0" prefWidth="210.0" textFill="RED" GridPane.rowIndex="2">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
                      <padding>
                         <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />

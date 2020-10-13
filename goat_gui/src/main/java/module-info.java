@@ -6,4 +6,7 @@ module com.mycompany.goat_gui {
 
     opens com.mycompany.goat_gui to javafx.fxml;
     exports com.mycompany.goat_gui;
+//    requires artifact.id;
+   // requires org.json.chargebee;
+    requires json;
 }
