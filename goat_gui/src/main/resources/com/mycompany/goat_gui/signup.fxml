@@ -50,47 +50,42 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="emailTextField" promptText="email" GridPane.columnIndex="1" />
                         <Label text="Username:" GridPane.rowIndex="1">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="usernameTextField" promptText="username" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label text="Password:" GridPane.rowIndex="2">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
                         <PasswordField fx:id="passwordPassField" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="usernameTextField" promptText="username" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="emailTextField" promptText="email" GridPane.columnIndex="1" />
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#createProfile" text="Sign Up" />
-                           </children>
-                        </VBox>
+                        <Label text="FirstName:" GridPane.rowIndex="3">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="firstNameTextField" promptText="first name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Last Name:" GridPane.rowIndex="4">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="lastNameTextField" promptText="last name" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <Label text="Birthday:" GridPane.rowIndex="5">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
                         <DatePicker fx:id="birthdayPicker" promptText="birthday" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label text="FirstName:" GridPane.rowIndex="3">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <Label text="Last Name:" GridPane.rowIndex="4">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="firstNameTextField" promptText="first name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <TextField fx:id="lastNameTextField" promptText="last name" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label fx:id="errorTextField" GridPane.rowIndex="6">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#createProfile" text="Sign Up" />
+                           </children>
+                        </VBox>
                      </children>
                      <padding>
                         <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
