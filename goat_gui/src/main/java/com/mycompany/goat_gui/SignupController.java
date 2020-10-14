@@ -30,6 +30,8 @@ import javax.net.ssl.HttpsURLConnection;
 import java.net.*; 
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class SignupController {
@@ -46,7 +48,7 @@ public class SignupController {
 
 
     
-    public void createProfile (ActionEvent event) throws IOException{
+    public void createProfile (ActionEvent event) throws IOException, JSONException{
         //if(usernameAvailable() && emailAvailable()){
             //dynamically allocate profile for user.
             
@@ -73,15 +75,26 @@ public class SignupController {
 
             }
             
+            //check for username taken 
             
+           
             if(canSignUp)
             {
             
-               CreateProfile(emailTextField.getText(),usernameTextField.getText(),passwordPassField.getText(),
+              String result = CreateProfile(emailTextField.getText(),usernameTextField.getText(),passwordPassField.getText(),
                           firstNameTextField.getText(),lastNameTextField.getText(),birthdayPicker.getValue().toString());
                //show profile
+               
+               if(result.equals("1"))
+               {
                window.setScene(profileScene);
                window.show();
+               }
+               else 
+               {
+                errorTextField.setTextFill(Color.web("#ff0000"));
+                errorTextField.setText("Username taken");
+               }
             
             }
             else 
@@ -95,7 +108,7 @@ public class SignupController {
     
     
     
-     public void CreateProfile(String email,String userName,String password,String firstName,String lastName,String birthday) throws IOException 
+     private String CreateProfile(String email,String userName,String password,String firstName,String lastName,String birthday) throws IOException, JSONException 
     {
         
     
@@ -135,13 +148,40 @@ public class SignupController {
             os.write(out);
         }
         
+        // Get the response
+        BufferedReader rd = new BufferedReader(new InputStreamReader(http.getInputStream()));
+        String line;
+        StringBuilder jsonString = new StringBuilder();
         
+        
+        
+        while ((line = rd.readLine()) != null) {
+        //System.out.println(line);
+        //convert into json string format
+        jsonString.append(line);
+
+        }
+        rd.close();
+        System.out.println(jsonString.toString());
+        //convert into json obejct for reading 
+        
+       JSONObject jsonObj = new JSONObject(jsonString.toString());
+       //JSONArray jsonArr= new JSONArray(jsonString.toString());
+
+       
+         
+       System.out.println("---------------------------");
+       System.out.println(jsonObj.get("success"));
+       
+       String s = (String) jsonObj.get("success");
        
        
+       
+       return s;
         
         
         
-        
+       
     }
 
 }
