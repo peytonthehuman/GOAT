@@ -26,7 +26,7 @@
             </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <TextField onAction="#onSearchEntered" promptText="Go on and try!" />
+                  <TextField fx:id="searchTextField" onAction="#onSearchEntered" promptText="Go on and try!" />
                </graphic>
             </Menu>
             <Menu mnemonicParsing="false">

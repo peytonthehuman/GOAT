@@ -10,11 +10,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class ProfileController {
+    
+    @FXML private TextField searchTextField;
     
     public void onHomePressed(ActionEvent event) throws IOException {      
         Parent profileParent = FXMLLoader.load(getClass().getResource("home.fxml"));
@@ -36,8 +39,14 @@ public class ProfileController {
         window.show();
     }
     
-    public void onSearchEntered(){
+    public void onSearchEntered(ActionEvent event) throws IOException {
+        Parent profileParent = FXMLLoader.load(getClass().getResource("searchList.fxml"));
+        Scene profileScene = new Scene(profileParent);
         
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(profileScene);
+        window.show();
     }
     
     public void onLogoutPressed(ActionEvent event) throws IOException {
