@@ -51,7 +51,7 @@ public class SignupController {
     public void createProfile (ActionEvent event) throws IOException, JSONException{
         //if(usernameAvailable() && emailAvailable()){
             //dynamically allocate profile for user.
-            
+
             //send them to their new profile page.
             Parent profileParent = FXMLLoader.load(getClass().getResource("mediaTest.fxml"));
             Scene profileScene = new Scene(profileParent);
@@ -176,6 +176,13 @@ public class SignupController {
        String s = (String) jsonObj.get("success");
        
        
+
+       //create the user
+       
+       
+       
+       
+    
        
        return s;
         
@@ -183,5 +190,8 @@ public class SignupController {
         
        
     }
+     
+     
+    
 
 }

@@ -8,5 +8,6 @@ module com.mycompany.goat_gui {
     exports com.mycompany.goat_gui;
 //    requires artifact.id;
    // requires org.json.chargebee;
-    requires json;
+    requires json;    
+    
 }

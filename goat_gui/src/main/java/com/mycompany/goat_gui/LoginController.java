@@ -164,6 +164,9 @@ public class LoginController {
        String s = (String) jsonObj.get("success");
        
        
+       //set user info
+       
+       
        
        return s;
     }
