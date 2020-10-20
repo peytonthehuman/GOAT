@@ -55,8 +55,8 @@
                               <Button mnemonicParsing="false" onAction="#signupForProfile" text="Sign Up" />
                            </children>
                         </HBox>
-                        <TextField fx:id="usernameTextField" promptText="username" GridPane.columnIndex="1" />
-                        <PasswordField fx:id="passwordPassField" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="usernameTextField" prefHeight="30.0" promptText="username" GridPane.columnIndex="1" />
+                        <PasswordField fx:id="passwordPassField" prefHeight="30.0" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <Label fx:id="errorlabel" prefHeight="29.0" prefWidth="210.0" textFill="RED" GridPane.rowIndex="2">
                            <font>
                               <Font size="14.0" />

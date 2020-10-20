@@ -25,17 +25,17 @@
       </AnchorPane>
       <ImageView fitHeight="287.0" fitWidth="444.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../java/com/mycompany/goat_gui/images/Canva%20-%20Sheep.jpg" />
+            <Image url="@../../../../java/images/brown_goat.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="263.0" layoutY="49.0" text="Do you crave that mineral?" textFill="#b9aeae">
+      <Label layoutX="14.0" layoutY="122.0" text="Do you crave that mineral?" textFill="#2b2b2c">
          <font>
-            <Font name="Bodoni MT" size="12.0" />
+            <Font name="Bodoni MT" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="14.0" text="Welcome to G.O.A.T" textFill="#24628f">
+      <Label layoutX="14.0" layoutY="14.0" text="Welcome to G.O.A.T" textFill="#bd2c38">
          <font>
-            <Font size="24.0" />
+            <Font size="23.0" />
          </font>
       </Label>
    </children>
