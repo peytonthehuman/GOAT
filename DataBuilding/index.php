@@ -18,25 +18,39 @@
 	# includes sources
 	include 'movie_source.php';
 	//include 'book_source.php';
-	//include 'vgame_source.php';
+	include 'vgame_source.php';
 	
 	# Run Movie Code
+	print("Running movies...\n");
 	openMovieSourceConn();
 	parseMovieData();
 	closeMovieSourceConn();
+	print("...movies done.\n");
 	
 	# Run Book Code
 	
 	# Run VGame Code
+	print("Running Video Games...\n");
+	openVgameSourceConn();
+	parseVgameData();
+	closeVgameSourceConn();
+	print("...games done.\n");
 	
 	# Exit Genre Table
 	disconnectFromDB($genreFile);
 	
-	# Merge Genre & keywords lists
-	
 	# Write Genre & Keywords To Database
 	$genreOccArray = $movieGenreArray;
+	foreach(array_keys($vgameGenreArray) as $vgameGenreKey) {
+		if(array_key_exists($vgameGenreKey, $genreOccArray)) {
+			$genreOccArray[$vgameGenreKey] += $vgameGenreArray[$vgameGenreKey];
+		} else {
+			$genreOccArray[$vgameGenreKey] = $vgameGenreArray[$vgameGenreKey];
+		}
+	}
 	$genreOccFile = connectToDB('genreOcc.csv', 'w');
+	
+	print_r($genreOccArray);
 	
 	writeLinetoDB($genreOccFile, ['GENRE', 'OCCURANCE']);
 		

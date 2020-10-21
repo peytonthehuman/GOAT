@@ -24,21 +24,21 @@
 		return cleanStrArray($line);
 	}
 	
+	function dataAsCSV($dataArray) {
+		$writeString = "";
+		foreach($dataArray as $data) {
+			$writeString .= $data;
+			$writeString .= ',';
+		}
+		return rtrim($writeString, ',');
+	}
+	
 	function readNextLineFromDB($dbObj) {
 		return fgets($dbObj);
 	}
 	
 	function writeLinetoDB($dbObj, $dataArray) {
-		$writeString = "";
-		
-		foreach($dataArray as $data) {
-			$writeString .= $data;
-			$writeString .= ',';
-		}
-		
-		$writeString = rtrim($writeString, ',');
-		
-		fwrite($dbObj, $writeString);
+		fwrite($dbObj, dataAsCSV($dataArray));
 		fwrite($dbObj, PHP_EOL);
 	}
 	
