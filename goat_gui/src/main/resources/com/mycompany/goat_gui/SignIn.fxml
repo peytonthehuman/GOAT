@@ -14,9 +14,9 @@
          <children>
             <TextField layoutX="28.0" layoutY="90.0" promptText="username" style="-fx-background-color: #b11a1a;" />
             <TextField layoutX="27.0" layoutY="137.0" promptText="password" style="-fx-background-color: #b11a1a;" />
-            <Button layoutX="57.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #680000;" text="Sign In" textFill="#eed5d5" />
+            <Button layoutX="57.0" layoutY="187.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #680000;" text="Login" textFill="#eed5d5" />
             <Button layoutX="58.0" layoutY="227.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: #680000;" text="Sign Up" textFill="#eed5d5" />
-            <Label layoutX="47.0" layoutY="14.0" text="Sign In" textFill="#eed5d5">
+            <Label layoutX="57.0" layoutY="14.0" text="Login" textFill="#eed5d5">
                <font>
                   <Font size="36.0" />
                </font>
@@ -28,7 +28,7 @@
             <Image url="@../../../../java/images/brown_goat.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="14.0" layoutY="122.0" text="Do you crave that mineral?" textFill="#2b2b2c">
+      <Label layoutX="14.0" layoutY="122.0" text="Do you crave that media?" textFill="#2b2b2c">
          <font>
             <Font name="Bodoni MT" size="16.0" />
          </font>
