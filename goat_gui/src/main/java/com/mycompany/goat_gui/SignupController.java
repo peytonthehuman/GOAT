@@ -45,6 +45,9 @@ public class SignupController {
 
     @FXML private DatePicker birthdayPicker;
     private boolean canSignUp = true;
+    
+     
+      
 
 
     
@@ -52,11 +55,11 @@ public class SignupController {
         //if(usernameAvailable() && emailAvailable()){
             //dynamically allocate profile for user.
 
-            //send them to their new profile page.
-            Parent profileParent = FXMLLoader.load(getClass().getResource("mediaTest.fxml"));
-            Scene profileScene = new Scene(profileParent);
+             //send them to their new login page.
+             Parent profileParent = FXMLLoader.load(getClass().getResource("login.fxml"));
+             Scene profileScene = new Scene(profileParent);
             
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
           
            TextField o[] = {emailTextField,usernameTextField,passwordPassField,firstNameTextField,lastNameTextField};
            
@@ -87,6 +90,8 @@ public class SignupController {
                
                if(result.equals("1"))
                {
+                   
+                   
                window.setScene(profileScene);
                window.show();
                }

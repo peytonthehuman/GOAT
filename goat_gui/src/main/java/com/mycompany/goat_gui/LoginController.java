@@ -39,6 +39,9 @@ public class LoginController {
     @FXML private TextField usernameTextField;
     @FXML private PasswordField passwordPassField;
     @FXML private Label errorlabel;
+    FXMLLoader loader;
+    private User user;
+
 
     
     /**
@@ -49,15 +52,19 @@ public class LoginController {
      */
     public void loginToProfile(ActionEvent event) throws IOException, JSONException{
         
-            Parent profileParent = FXMLLoader.load(getClass().getResource("profile.fxml"));
-            Scene profileScene = new Scene(profileParent);
+         
+        // Parent profileParent = FXMLLoader.load(getClass().getResource("profile.fxml"));
+          
+       // Scene profileScene = new Scene(profileParent);
             
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+         //Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             
+        
             /*
             window.setScene(profileScene);
             window.show();
             */
+          
             
 
             //check if feilds are empty 
@@ -72,6 +79,23 @@ public class LoginController {
                 //1 is success
                 if(check.equals("1"))
                 {
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("profile.fxml"));
+                    
+                    Parent profileParent = loader.load();
+                    
+                    
+                    
+                    Scene profileScene = new Scene(profileParent);
+                    
+                    ProfileController pc = loader.getController();
+                   
+                    pc.setUser(user);
+            
+                    Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            
+       
+                    
                     window.setScene(profileScene);
                     window.show();
                 }
@@ -164,7 +188,43 @@ public class LoginController {
        String s = (String) jsonObj.get("success");
        
        
-       //set user info
+       
+       if(s.equals("1"))
+       {
+           //get json array login out of the object and parse through it
+            JSONArray jsonArr = jsonObj.getJSONArray("login");
+            
+            System.out.println(jsonArr); //debug
+            String id =null;
+            String u = null;
+            String e = null;
+            String b = null;
+            String fn  = null;
+            String ln = null;
+            String pic_Path = null;
+            
+            for(int i = 0 ; i<jsonArr.length();i++)
+            {
+                JSONObject item = jsonArr.getJSONObject(i);  
+                id = item.getString("User_Id");
+                u = item.getString("Username");
+                e = item.getString("Email");
+                b = item.getString("Birthday");
+                fn = item.getString("FirstName");
+                ln = item.getString("LastName");
+                pic_Path = item.getString("Picture_Path");
+                
+            }
+            System.out.println(u); //debug
+            
+            
+            
+          
+            
+            //set user info with constructor
+            user = new User(Integer.valueOf(id),u,e,b,fn,ln,pic_Path);
+
+       }
        
        
        

@@ -22,6 +22,13 @@ import javafx.stage.Stage;
 public class MediaItemController {
     
     @FXML private TextField searchTextField;
+    private User user;
+    
+    public void setUser(User u)
+    {
+        user = u;
+        
+    }
         
     public void onHomePressed(ActionEvent event) throws IOException {      
         Parent profileParent = FXMLLoader.load(getClass().getResource("home.fxml"));
