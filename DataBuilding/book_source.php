@@ -13,7 +13,7 @@
 	# Functions
 	function openBookSourceConn() {
 		global $dataSourcePath, $bookSourcesConnArray, $wmddb, $wbdb;
-		$path = $dataSourcePath . 'Books\\Books.All.2016.combined.xml';
+		$path = $dataSourcePath . 'Books\\Books.All.2016.part31.xml';
 		print($path);
 		$bookSourcesConnArray["LOC"] = connectToDB($path, 'r');
 		$wmddb = connectToDB($dataSourcePath . 'mediaBook.csv', 'w'); // Fix this
@@ -35,7 +35,7 @@
 			$recordString .= $tempRecordString;
 		} while(rtrim($tempRecordString) !== "</record>");
 		
-		$recordXML = simplexml_load_string($recordString);
+		$recordXML = simplexml_load_string($recordString, "SimpleXMLElement", LIBXML_ERR_FATAL | LIBXML_PARSEHUGE);
 		
 		$leader = $recordXML->leader;
 		
