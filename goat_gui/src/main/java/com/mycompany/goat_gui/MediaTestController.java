@@ -19,6 +19,16 @@ import javafx.stage.Stage;
  */
 public class MediaTestController {
         
+    
+    private User user;
+    
+    public void setUser(User u)
+    {
+        user = u;
+        
+    }
+    
+    
     public void onSubmitPressed(ActionEvent event) throws IOException{
         //Adds ratings to profile
         
