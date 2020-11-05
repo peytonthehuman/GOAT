@@ -10,12 +10,44 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class ProfileController {
+public class ProfileController implements Initializable {
+    
+    @FXML private Button detailedMediaView;
+    
+    public void userClickedOnTable(){
+        this.detailedMediaView.setDisable(false);
+    }
+    
+    public void changeScreenToMediaItem(ActionEvent event) throws Exception {
+        Parent mediaParent = FXMLLoader.load(getClass().getResource("mediaItem.fxml"));
+        Scene mediaScene = new Scene(mediaParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(mediaScene);
+        window.show();
+    }
+    
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        //Disable the detailed media view button until a row is selected
+        this.detailedMediaView.setDisable(true);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     @FXML private TextField searchTextField;
     private User user;
@@ -92,6 +124,8 @@ public class ProfileController {
         window.setScene(profileScene);
         window.show();
     }
+
+
     
     
     
