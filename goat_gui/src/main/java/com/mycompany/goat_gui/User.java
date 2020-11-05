@@ -6,6 +6,7 @@
 package com.mycompany.goat_gui;
 
 import java.util.ArrayList;
+import javafx.scene.image.Image;
 
 /**
  *
@@ -21,12 +22,24 @@ public class User {
     private String firstName;
     private String lastName;
     private String pic_Path;
+    private Image photo;
     
     //the list of what the user rates and saves
     private ArrayList<Media> savedMedia;
     private ArrayList<Media> ratedMedia;
     
-    
+    //for dummy data in ProfileController
+        //DELETE ONCE DUMMY DATA NOT NEEDED
+    public User(int id,String u,String e,String b, String fn,String ln)
+    {
+        this.id = id;
+        this.username = u;
+        this.email = e;
+        this.birthday = b;
+        this.firstName = fn;
+        this.lastName = ln;
+        //no pic cause troubles. will try to implement later
+    }
     
     //con with info init
     public User(int id,String u,String e,String b, String fn,String ln,String pic )
@@ -120,6 +133,13 @@ public class User {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    
+    /**
+     * @return the Full Name
+     */
+    public String getFullName(){
+        return firstName + " " + lastName;
+    }
 
     /**
      * @return the pic_Path
@@ -134,6 +154,19 @@ public class User {
     public void setPic_Path(String pic_Path) {
         this.pic_Path = pic_Path;
     }
+    
+    
+    
+    /**
+     * @return the Image
+     */
+    public Image getImage(){
+        return photo;
+    }
+    
+    
+    
+    
 
     /**
      * @return the savedMedia

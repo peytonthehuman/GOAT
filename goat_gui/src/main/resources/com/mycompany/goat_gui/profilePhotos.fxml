@@ -7,42 +7,69 @@
 
 <TilePane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" TilePane.alignment="CENTER">
          <image>
             <Image url="@../../../../java/images/brown_goat.jpg" />
-         </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+         <TilePane.margin>
+            <Insets />
+         </TilePane.margin></ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" TilePane.alignment="CENTER">
          <image>
             <Image url="@../../../../java/images/do_you_have_any_fun_games_on_your_phone_kid_goat.jpg" />
-         </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+         <TilePane.margin>
+            <Insets />
+         </TilePane.margin></ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" TilePane.alignment="CENTER">
          <image>
             <Image url="@../../../../java/images/gentleman_goat.jpg" />
-         </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+         <TilePane.margin>
+            <Insets />
+         </TilePane.margin></ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" TilePane.alignment="CENTER">
          <image>
             <Image url="@../../../../java/images/hungry_goat.jpg" />
-         </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+         <TilePane.margin>
+            <Insets />
+         </TilePane.margin></ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" TilePane.alignment="CENTER">
          <image>
             <Image url="@../../../../java/images/i_see_everything.jpg" />
-         </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+         <TilePane.margin>
+            <Insets />
+         </TilePane.margin></ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" TilePane.alignment="CENTER">
          <image>
             <Image url="@../../../../java/images/judgemental_goats.jpg" />
-         </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+         <TilePane.margin>
+            <Insets />
+         </TilePane.margin></ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" TilePane.alignment="CENTER">
          <image>
             <Image url="@../../../../java/images/king_of_the_hill_goat.jpg" />
-         </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+         <TilePane.margin>
+            <Insets />
+         </TilePane.margin></ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" TilePane.alignment="CENTER">
          <image>
             <Image url="@../../../../java/images/ya_got_some_candy_goat.jpg" />
-         </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         </image>
+         <TilePane.margin>
+            <Insets />
+         </TilePane.margin></ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" TilePane.alignment="CENTER">
          <image>
             <Image url="@../../../../java/images/that_drunk_uncle_goat.jpg" />
-         </image></ImageView>
+         </image>
+         <TilePane.margin>
+            <Insets />
+         </TilePane.margin></ImageView>
    </children>
    <padding>
       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
