@@ -27,8 +27,9 @@
 	function dataAsCSV($dataArray) {
 		$writeString = "";
 		foreach($dataArray as $data) {
-			$writeString .= $data;
-			$writeString .= ',';
+			$dataW = str_replace("|", ":", $data)
+			$writeString .= $dataW;
+			$writeString .= '|';
 		}
 		return rtrim($writeString, ',');
 	}

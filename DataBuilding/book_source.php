@@ -13,9 +13,18 @@
 	# Functions
 	function openBookSourceConn() {
 		global $dataSourcePath, $bookSourcesConnArray, $wmddb, $wbdb;
-		$path = $dataSourcePath . 'Books\\Books.All.2016.part31.xml';
-		print($path);
-		$bookSourcesConnArray["LOC"] = connectToDB($path, 'r');
+		
+		for($i = 1; $i <= 42; $i++) {
+			$iterString = ''
+			if($i < 10) {
+				$iterString = '0' . (string)$i;
+			} else {
+				$iterString = (string)$i;
+			}
+			$path = $dataSourcePath . 'Books\\books.p' . $iterString . '.xml';
+			print($path);
+			$bookSourcesConnArray[$iterString] = connectToDB($path, 'r');
+		}
 		$wmddb = connectToDB($dataSourcePath . 'mediaBook.csv', 'w'); // Fix this
 		$wbdb = connectToDB($dataSourcePath . 'book.csv', 'w');
 	}
@@ -320,10 +329,18 @@
 		//}
 	}
 	
-	function parseBookData() {
-		global $bookSourcesConnArray, $bookGenreArray, $bookKeywordArray, $wmddb, $wbdb;
+	function parseAllBookCollections() {
+		global $bookSourcesConnArray;
 		
-		$rdb = $bookSourcesConnArray["LOC"];
+		foreach($bookSourcesConnArray as $collection) {
+			parseBookData($collection);
+		}
+		
+		print $bookGenreArray;
+	}
+	
+	function parseBookData($rbd) {
+		global $bookGenreArray, $bookKeywordArray, $wmddb, $wbdb;
 		
 		$totalEntries = 0;
 		$numBooks = 0;
@@ -340,22 +357,9 @@
 				$ret = parseNextXMLRecordAsBook($rdb);
 			} catch(Exception $e) {
 				if($e->getCode() == 42) {
-					if($recoverFromExcept) {
-						print_r($e);
-						throw new Exception(
-							"Twice misaligned!\nTotal Entries: " . $totalEntries
-							. "\nPrevious message: " . $e->getMessage() . "\nPrevious Code: " . $e->getCode());
-					} else {
-						$numCollect ++;
-						$recoverFromExcept = TRUE;
-						print("!!!\nEnded Collection :\n" . $e->getMessage() . "\nTotal Entries: " . $totalEntries . "\nNum Collections: " . $numCollect . "\n!!!\n");
-					}
-					
-					readNextLineFromDB($bookSourcesConnArray["LOC"]);
-					readNextLineFromDB($bookSourcesConnArray["LOC"]);
-					readNextLineFromDB($bookSourcesConnArray["LOC"]);
-					
-					$ret = -2;
+					print($e->getMessage());
+					print("\nReading Next Line...\n");
+					readNextLineFromDB($rbd);
 				} else {
 					throw $e;
 				}
@@ -368,7 +372,7 @@
 				} elseif($ret === 0) {
 					$recoverFromExcept = FALSE;
 					$rejEntries ++;
-				} elseif($ret != -2) {
+				} else {
 					$recoverFromExcept = FALSE;
 					$numBooks ++;
 					
@@ -387,25 +391,13 @@
 							  $ret["genres"], 0);
 				}
 				
-				if($ret != -2 or $ret != -1) {
+				if($ret != -1) {
 					$totalEntries ++;
 				}
 				
 				if($totalEntries % $modVal === 0) {
 					print(number_format($totalEntries) . " processed...\n");
 					print("\tNum Books: " . number_format($numBooks) . "\n");
-				}
-				
-				if($modVal == 10000 and $totalEntries > 7790000) {
-					$modVal = 1;
-				}
-				
-				// Note for future, has trouble in 7,790,000 or so, which is in collection 32
-				
-				//7,791,311
-				
-				if($modVal == 1 and $totalEntries > 7800000) {
-					$modVal = 10000;
 				}
 			}
 		} while($cont);
