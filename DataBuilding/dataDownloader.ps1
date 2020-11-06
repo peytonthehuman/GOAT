@@ -1,9 +1,9 @@
 ﻿$bookURL = "https://www.loc.gov/cds/downloads/MDSConnect/BooksAll.2016.part"
 $bookURLExt = ".xml.gz"
 
-$dataDir = "C:\Users\pvanh\Documents\NetBeansProjects\dataSources\Books"
+$dataDir = "$env:USERPROFILE\Documents\NetBeansProjects\dataSources\Books"
 
-$writtenFileName = "books.p"
+$writtenFileName = "book.p"
 
 $ProgressPreference = 'silentlyContinue'
 
