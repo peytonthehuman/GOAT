@@ -16,18 +16,20 @@ public class Media {
     private SimpleStringProperty mediaGenre;
     private SimpleStringProperty mediaDescription;
     private SimpleDoubleProperty mediaRating;
+    //private SimpleStringProperty mediaPhotoID;
     private Image mediaPhoto;
     
     /**
      * Constructor with data
      */
-    public Media(String title, String genre, String descr, double rating, Image photo){
+    public Media(Image photo, String title, String genre, String descr, double rating){
         this.mediaTitle = new SimpleStringProperty(title);
         this.mediaGenre = new SimpleStringProperty(genre);
         this.mediaDescription = new SimpleStringProperty(descr);
         this.mediaRating = new SimpleDoubleProperty(rating);
+        //this.mediaPhotoID = new SimpleStringProperty(photo);
             //image doesnt show up in examples
-        //this.mediaPhoto = photo;
+        this.mediaPhoto = photo;
     }
     //default constructor for getDummyMedia located in ProfileController
         //MAY BE DELETED ONCE PHOTOS SUCCESSFULLY PASSED THROUGH FUNCTIONS!!!!!!!!!!!!!!!!!!!

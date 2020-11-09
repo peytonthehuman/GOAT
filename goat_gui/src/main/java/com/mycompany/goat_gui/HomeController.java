@@ -31,8 +31,13 @@ public class HomeController {
     }
     
         
-    public void onHomePressed(ActionEvent event) throws IOException {      
-         FXMLLoader loader = new FXMLLoader();
+    public void onHomePressed(ActionEvent event) throws IOException { 
+        /**
+         * This code works sometimes but not others.
+         * 
+         * Will need to figure out why
+         */
+         /*FXMLLoader loader = new FXMLLoader();
          loader.setLocation(getClass().getResource("home.fxml"));
                     
          Parent profileParent = loader.load();
@@ -50,11 +55,19 @@ public class HomeController {
        
                     
          window.setScene(profileScene);
-         window.show();
+         window.show(); */
+         
+        Parent profileParent = FXMLLoader.load(getClass().getResource("home.fxml"));
+        Scene profileScene = new Scene(profileParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(profileScene);
+        window.show();
     }
     
     public void onProfilePressed(ActionEvent event) throws IOException{
-        FXMLLoader loader = new FXMLLoader();
+        /*FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("profile.fxml"));
                     
         Parent profileParent = loader.load();
@@ -72,6 +85,14 @@ public class HomeController {
             
        
          
+        window.setScene(profileScene);
+        window.show();*/
+        
+        Parent profileParent = FXMLLoader.load(getClass().getResource("profile.fxml"));
+        Scene profileScene = new Scene(profileParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
         window.setScene(profileScene);
         window.show();
     }

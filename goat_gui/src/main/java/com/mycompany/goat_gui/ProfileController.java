@@ -83,18 +83,18 @@ public class ProfileController implements Initializable {
     
     public ObservableList<Media> getDummyMedia(){
         ObservableList<Media> media = FXCollections.observableArrayList();
-        media.add(new Media("dummyTitle", "dummy", "dumdum give me gumgum", 5));
+        media.add(new Media(new Image("file:C:\\Users\\Sean\\Documents\\NetBeansProjects\\GOAT\\goat_gui\\src\\main\\java\\images\\sassy_goat.jpg"), "dummyTitle", "dummy", "dumdum give me gumgum", 5));
         media.add(new Media("Human Centipede", "Horror", "Fun movie with tender moments. Great for children. Trust me", 0));
         media.add(new Media("Marley and Me", "Pupper", "You're either laughing or crying the whole time. There is no inbetween.", 10));
         
         return media;
     }
     
-    private Image dummyImage = new Image("file:ya_got_some_candy_goat.jpg");
+    private Image dummyImage = new Image("file:C:\\Users\\Sean\\Documents\\NetBeansProjects\\GOAT\\goat_gui\\src\\main\\java\\images\\ya_got_some_candy_goat.jpg");
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        //coverArtColumn.setCellValueFactory(new PropertyValueFactory<Media, Image>("coverArt"));
+        coverArtColumn.setCellValueFactory(new PropertyValueFactory<Media, Image>("coverArt"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
         genreColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("genre"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("description"));
@@ -108,15 +108,38 @@ public class ProfileController implements Initializable {
         emailLabel.setText("dummyEmail");
         nameLabel.setText("dummy");
         birthdayLabel.setText("");
-            //photo not loading. will figure out soon. hopefully
-        //photo.setImage(dummyImage);
+        photo.setImage(dummyImage);
         
 
         //Disable the detailed media view button until a row is selected
         this.detailedMediaView.setDisable(true);
     }
     
-    
+     /**
+     * Load Profile Window
+     */
+    public void onProfilePressed(ActionEvent event) throws IOException{
+          FXMLLoader loader = new FXMLLoader();
+          loader.setLocation(getClass().getResource("profile.fxml"));
+                    
+          Parent profileParent = loader.load();
+                    
+          System.out.println("---------" + user.getUsername());   //debug        
+            
+                    
+          Scene profileScene = new Scene(profileParent);
+                    
+          ProfileController pc = loader.getController();
+                   
+          pc.setUser(user);
+            
+          Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            
+       
+                    
+          window.setScene(profileScene);
+          window.show();
+    }
     
     
   
@@ -164,8 +187,15 @@ public class ProfileController implements Initializable {
     /**
      * Home Functions 
      */
-    public void onHomePressed(ActionEvent event) throws IOException {      
-         FXMLLoader loader = new FXMLLoader();
+    public void onHomePressed(ActionEvent event) throws IOException { 
+        
+        /**
+         * For whatever reason, this code breaks traversal from one window to the next
+         * on certain instances.
+         * 
+         * Look into why.
+         */
+         /*FXMLLoader loader = new FXMLLoader();
          loader.setLocation(getClass().getResource("home.fxml"));
                     
          Parent profileParent = loader.load();
@@ -184,33 +214,16 @@ public class ProfileController implements Initializable {
        
                     
          window.setScene(profileScene);
-         window.show();
+         window.show();*/
+         
+        Parent profileParent = FXMLLoader.load(getClass().getResource("home.fxml"));
+        Scene profileScene = new Scene(profileParent);
         
-    }
-    /**
-     * Profile Functions
-     */
-    public void onProfilePressed(ActionEvent event) throws IOException{
-          FXMLLoader loader = new FXMLLoader();
-          loader.setLocation(getClass().getResource("profile.fxml"));
-                    
-          Parent profileParent = loader.load();
-                    
-          System.out.println("---------" + user.getUsername());   //debug        
-            
-                    
-          Scene profileScene = new Scene(profileParent);
-                    
-          ProfileController pc = loader.getController();
-                   
-          pc.setUser(user);
-            
-          Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-            
-       
-                    
-          window.setScene(profileScene);
-          window.show();
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(profileScene);
+        window.show();
+        
     }
     /**
      * Search Functions
