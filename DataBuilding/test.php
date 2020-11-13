@@ -8,11 +8,7 @@
 	
 	# Run Book Code
 	function open() {
-		global $bookSourcesConnArray;
 		openBookSourceConn();
-		readNextLineFromDB($bookSourcesConnArray["LOC"]);
-		readNextLineFromDB($bookSourcesConnArray["LOC"]);
-		readNextLineFromDB($bookSourcesConnArray["LOC"]);
 	}
 	
 	function printParseNextBook($printbool) {

@@ -50,9 +50,9 @@ for($i = 1; $i -lt 42; $i++) {
         Move-Item -Path "$dirToFile.xml.f\Books.All.2016.part$iterString.xml" -Destination "$dirToXML"
         Remove-Item "$dirToFile.xml.f" -Recurse
         Remove-Item "$dirToDown"
-    }
 
-    Start-Sleep -Seconds 5
+        Start-Sleep -Seconds 5
+    }
 }
 
 $ProgressPreference = 'Continue'

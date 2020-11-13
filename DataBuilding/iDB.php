@@ -27,15 +27,16 @@
 	function dataAsCSV($dataArray) {
 		$writeString = "";
 		foreach($dataArray as $data) {
-			$dataW = str_replace("|", ":", $data)
+			$dataW = str_replace("|", ":", $data);
 			$writeString .= $dataW;
 			$writeString .= '|';
 		}
 		return rtrim($writeString, ',');
 	}
 	
-	function readNextLineFromDB($dbObj) {
-		return fgets($dbObj);
+	function readNextLineFromDB(&$dbObj) {
+		$retVal = fgets($dbObj);
+		return $retVal;
 	}
 	
 	function writeLinetoDB($dbObj, $dataArray) {

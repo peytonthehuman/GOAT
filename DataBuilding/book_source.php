@@ -14,22 +14,22 @@
 	function openBookSourceConn() {
 		global $dataSourcePath, $bookSourcesConnArray, $wmddb, $wbdb;
 		
-		for($i = 1; $i <= 42; $i++) {
-			$iterString = ''
+		for($i = 1; $i < 42; $i++) {
+			$iterString = '';
 			if($i < 10) {
 				$iterString = '0' . (string)$i;
 			} else {
 				$iterString = (string)$i;
 			}
-			$path = $dataSourcePath . 'Books\\books.p' . $iterString . '.xml';
+			$path = $dataSourcePath . 'Books\\book.p' . $iterString . '.xml';
 			print($path);
 			$bookSourcesConnArray[$iterString] = connectToDB($path, 'r');
 		}
-		$wmddb = connectToDB($dataSourcePath . 'mediaBook.csv', 'w'); // Fix this
+		$wmddb = connectToDB($dataSourcePath . 'media.csv', 'a');
 		$wbdb = connectToDB($dataSourcePath . 'book.csv', 'w');
 	}
 	
-	function parseNextXMLRecordAsBook($file) {
+	function parseNextXMLRecordAsBook(&$file) {
 		$tempRecordString = readNextLineFromDB($file);
 		if($tempRecordString == FALSE) {
 			return -1;
@@ -324,23 +324,30 @@
 			 rtrim($author),
 			 $numPages]);
 			 
-		//foreach($genreArray as $genre) {
-		//	writeLinetoDB($genreFile, [$id, $genre]);
-		//}
+		foreach($genreArray as $genre) {
+			writeLinetoDB($genreFile, [$id, $genre]);
+		}
 	}
 	
 	function parseAllBookCollections() {
-		global $bookSourcesConnArray;
+		global $bookSourcesConnArray, $bookGenreArray;
+		
+		$i = 0;
 		
 		foreach($bookSourcesConnArray as $collection) {
 			parseBookData($collection);
+			$i += 1;
+			print($i);
+			print("\n");
 		}
 		
-		print $bookGenreArray;
+		print_r($bookGenreArray);
 	}
 	
-	function parseBookData($rbd) {
+	function parseBookData(&$rdb) {
 		global $bookGenreArray, $bookKeywordArray, $wmddb, $wbdb;
+		
+		print($rdb);
 		
 		$totalEntries = 0;
 		$numBooks = 0;
@@ -359,15 +366,15 @@
 				if($e->getCode() == 42) {
 					print($e->getMessage());
 					print("\nReading Next Line...\n");
-					readNextLineFromDB($rbd);
+					$ret = 0;
 				} else {
 					throw $e;
 				}
 			} finally {
 				if($ret === -1) {
-					print("Total num of entries is: " . $totalEntries . '\n');
-					print("Number of books is: " . $numBooks . '\n');
-					print("Num of reject entries is: " . $rejEntries . '\n');
+					print("Total num of entries is: " . $totalEntries . "\n");
+					print("Number of books is: " . $numBooks . "\n");
+					print("Num of reject entries is: " . $rejEntries . "\n");
 					$cont = FALSE;
 				} elseif($ret === 0) {
 					$recoverFromExcept = FALSE;
@@ -401,14 +408,16 @@
 				}
 			}
 		} while($cont);
-		
-		print_r($bookGenreArray);
 	}
 	
 	function closeBookSourceConn() {
 		global $bookSourcesConnArray, $wmddb, $wbdb;
-		disconnectFromDB($bookSourcesConnArray["LOC"]);
-		$bookSourcesConnArray["LOC"] = NULL;
+		
+		foreach($bookSourcesConnArray as $source) {
+			disconnectFromDB($source);
+			$source = NULL;
+		}
+		
 		disconnectFromDB($wmddb);
 		$wmddb = NULL;
 		disconnectFromDB($wbdb);

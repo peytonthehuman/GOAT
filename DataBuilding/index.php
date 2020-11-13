@@ -17,7 +17,7 @@
 	
 	# includes sources
 	include 'movie_source.php';
-	//include 'book_source.php';
+	include 'book_source.php';
 	include 'vgame_source.php';
 	
 	# Run Movie Code
@@ -28,6 +28,11 @@
 	print("...movies done.\n");
 	
 	# Run Book Code
+	print("Running Books...\n");
+	openBookSourceConn();
+	parseAllBookCollections();
+	closeBookSourceConn();
+	print("...books done.\n");
 	
 	# Run VGame Code
 	print("Running Video Games...\n");
@@ -46,6 +51,13 @@
 			$genreOccArray[$vgameGenreKey] += $vgameGenreArray[$vgameGenreKey];
 		} else {
 			$genreOccArray[$vgameGenreKey] = $vgameGenreArray[$vgameGenreKey];
+		}
+	}
+	foreach(array_keys($bookGenreArray) as $bookGenreKey) {
+		if(array_key_exists($bookGenreKey, $genreOccArray)) {
+			$genreOccArray[$bookGenreKey] += $bookGenreArray[$bookGenreKey];
+		} else {
+			$genreOccArray[$bookGenreKey] = $bookGenreArray[$bookGenreKey];
 		}
 	}
 	$genreOccFile = connectToDB('genreOcc.csv', 'w');
