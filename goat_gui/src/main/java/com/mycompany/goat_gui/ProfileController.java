@@ -90,7 +90,10 @@ public class ProfileController implements Initializable {
         return media;
     }
     
-    private Image dummyImage = new Image("file:C:\\Users\\Sean\\Documents\\NetBeansProjects\\GOAT\\goat_gui\\src\\main\\java\\images\\ya_got_some_candy_goat.jpg");
+    // Old Image
+    // private Image dummyImage = new Image("file:C:\\Users\\Sean\\Documents\\NetBeansProjects\\GOAT\\goat_gui\\src\\main\\java\\images\\ya_got_some_candy_goat.jpg");
+    
+    private Image dummyImage = new Image("http://i.stack.imgur.com/Hbnkb.png");
     
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
