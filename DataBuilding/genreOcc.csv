@@ -1,54 +1,72 @@
-GENRE,OCCURANCE
-Romance,41266
-Biography,14555
-Drama,197725
-\N,69502
-Crime,31655
-Adventure,29529
-Fantasy,12644
-Comedy,94783
-War,8433
-Documentary,99766
-Family,15296
-History,12183
-Sci-Fi,11533
-Thriller,36437
-Western,6715
-Short,42
-Sport,5731
-Mystery,14031
-Horror,29453
-Action,53435
-Music,10330
-Animation,7116
-Musical,9316
-Film-Noir,766
-News,1450
-Adult,18
-Reality-TV,277
-Game-Show,17
-Talk-Show,105
-Free to Play,665
-Strategy,2623
-Indie,7780
-RPG,2087
-Animation & Modeling,84
-Video Production,52
-Casual,3564
-Simulation,2102
-Racing,476
-Massively Multiplayer,389
-Sports,541
-Early Access,1470
-Photo Editing,25
-Utilities,161
-Design & Illustration,107
-Education,65
-Software Training,63
-Web Publishing,24
-Audio Production,50
-Accounting,5
-Nudity,20
-Violent,62
-Gore,43
-Sexual Content,10
+GENRE|OCCURANCE|
+Romance|41266|
+Biography|14555|
+Drama|201142|
+\N|69502|
+Crime|31655|
+Adventure|29529|
+Fantasy|12644|
+Comedy|94783|
+War|8433|
+Documentary|99766|
+Family|15296|
+History|12183|
+Sci-Fi|11533|
+Thriller|36437|
+Western|6715|
+Short|42|
+Sport|5731|
+Mystery|14031|
+Horror|29453|
+Action|53435|
+Music|10330|
+Animation|7116|
+Musical|9316|
+Film-Noir|766|
+News|1450|
+Adult|4363|
+Reality-TV|277|
+Game-Show|17|
+Talk-Show|105|
+Free to Play|665|
+Strategy|2623|
+Indie|7780|
+RPG|2087|
+Animation & Modeling|84|
+Video Production|52|
+Casual|3564|
+Simulation|2102|
+Racing|476|
+Massively Multiplayer|389|
+Sports|541|
+Early Access|1470|
+Photo Editing|25|
+Utilities|161|
+Design & Illustration|107|
+Education|65|
+Software Training|63|
+Web Publishing|24|
+Audio Production|50|
+Accounting|5|
+Nudity|20|
+Violent|62|
+Gore|43|
+Sexual Content|10|
+Non fiction|1964367|
+Fiction|470114|
+Juvenile|194451|
+Primary School|33042|
+Pre-adolescent|23151|
+Preschool|11988|
+Adolescent|8305|
+Mixed|292|
+Novel|9479|
+Filmography|715|
+Poetry|3898|
+General|1134|
+Humor|157|
+Short Story|1363|
+Essay|203|
+Comic/Graphic Novel|5080|
+Letter|60|
+Speech|30|
