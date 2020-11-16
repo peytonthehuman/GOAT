@@ -24,7 +24,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class ProfileController implements Initializable {
+public class ProfileController  {
 
     @FXML private TextField searchTextField;
     private User user;
@@ -95,6 +95,7 @@ public class ProfileController implements Initializable {
     
     private Image dummyImage = new Image("http://i.stack.imgur.com/Hbnkb.png");
     
+    /*
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         coverArtColumn.setCellValueFactory(new PropertyValueFactory<Media, Image>("coverArt"));
@@ -117,7 +118,7 @@ public class ProfileController implements Initializable {
         //Disable the detailed media view button until a row is selected
         this.detailedMediaView.setDisable(true);
     }
-    
+    */
      /**
      * Load Profile Window
      */
@@ -167,6 +168,30 @@ public class ProfileController implements Initializable {
      * Media Item Functions
      */
     public void changeScreenToMediaItem(ActionEvent event) throws Exception {
+        
+          FXMLLoader loader = new FXMLLoader();
+          loader.setLocation(getClass().getResource("mediaItem.fxml"));
+                    
+          Parent mediaParent = loader.load();
+                    
+          System.out.println("---------" + user.getUsername());   //debug        
+            
+                    
+          Scene mediaScene = new Scene(mediaParent);
+                    
+          MediaItemController mc = loader.getController();
+                   
+          mc.setUser(user);
+            
+          Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            
+       
+                    
+          window.setScene(mediaScene);
+          window.show();
+        
+        
+        /*
         Parent mediaParent = FXMLLoader.load(getClass().getResource("mediaItem.fxml"));
         Scene mediaScene = new Scene(mediaParent);
         
@@ -174,6 +199,7 @@ public class ProfileController implements Initializable {
         
         window.setScene(mediaScene);
         window.show();
+        */
     }
     /**
      * Change Photo Functions
@@ -198,7 +224,7 @@ public class ProfileController implements Initializable {
          * 
          * Look into why.
          */
-         /*FXMLLoader loader = new FXMLLoader();
+         FXMLLoader loader = new FXMLLoader();
          loader.setLocation(getClass().getResource("home.fxml"));
                     
          Parent profileParent = loader.load();
@@ -217,7 +243,9 @@ public class ProfileController implements Initializable {
        
                     
          window.setScene(profileScene);
-         window.show();*/
+         window.show();
+        
+        /*
          
         Parent profileParent = FXMLLoader.load(getClass().getResource("home.fxml"));
         Scene profileScene = new Scene(profileParent);
@@ -226,18 +254,32 @@ public class ProfileController implements Initializable {
         
         window.setScene(profileScene);
         window.show();
+        */
         
     }
     /**
      * Search Functions
      */
     public void onSearchEntered(ActionEvent event) throws IOException {
-        Parent searchParent = FXMLLoader.load(getClass().getResource("searchList.fxml"));
-        Scene searchScene = new Scene(searchParent);
-        
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("searchList.fxml"));
+                    
+        Parent profileParent = loader.load();
+                    
+        System.out.println("---------" + user.getUsername());   //debug        
+
+                    
+        Scene profileScene = new Scene(profileParent);
+                    
+        ProfileController pc = loader.getController();
+                   
+        pc.setUser(user);
+            
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(searchScene);
+            
+       
+         
+        window.setScene(profileScene);
         window.show();
     }
     /**
