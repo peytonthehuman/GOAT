@@ -105,7 +105,7 @@ public class ProfileController  {
         ratingColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("rating"));
         
         //load dummy data
-            //MAKE SURE TO DELETE ONCE WE GET DATA FLOWING
+        //MAKE SURE TO DELETE ONCE WE GET DATA FLOWING
         tableView.setItems(getDummyMedia());
                 
         usernameLabel.setText("dummyUser");
@@ -136,7 +136,7 @@ public class ProfileController  {
           ProfileController pc = loader.getController();
                    
           pc.setUser(user);
-            
+          pc.initData(user);  
           Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             
        

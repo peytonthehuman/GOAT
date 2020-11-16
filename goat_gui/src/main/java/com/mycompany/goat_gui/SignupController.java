@@ -91,7 +91,7 @@ public class SignupController {
                if(result.equals("1"))
                {
                    
-                   
+               
                window.setScene(profileScene);
                window.show();
                }
