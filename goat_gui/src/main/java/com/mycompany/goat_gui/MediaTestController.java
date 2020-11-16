@@ -33,22 +33,48 @@ public class MediaTestController {
         //Adds ratings to profile
         
         //Sends to profile page
-        Parent profileParent = FXMLLoader.load(getClass().getResource("profile.fxml"));
+         FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("profile.fxml"));
+                    
+        Parent profileParent = loader.load();
+                    
+        System.out.println("---------" + user.getUsername());   //debug        
+
+                    
         Scene profileScene = new Scene(profileParent);
-        
+                    
+        ProfileController pc = loader.getController();
+                   
+        pc.setUser(user);
+            
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
+            
+       
+         
         window.setScene(profileScene);
         window.show();
     }
     
     public void onSkipPressed(ActionEvent event) throws IOException{
         //Sends to profile page with cold case
-        Parent profileParent = FXMLLoader.load(getClass().getResource("profile.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("profile.fxml"));
+                    
+        Parent profileParent = loader.load();
+                    
+        System.out.println("---------" + user.getUsername());   //debug        
+
+                    
         Scene profileScene = new Scene(profileParent);
-        
+                    
+        ProfileController pc = loader.getController();
+                   
+        pc.setUser(user);
+            
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
+            
+       
+         
         window.setScene(profileScene);
         window.show();
     }
