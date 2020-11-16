@@ -18,6 +18,10 @@
 	//			"Actors"
 	//			// If Media_Type == 3
 	//			"Console"
+	//		"Genres"
+	//			... Under Construction
+	//		"Keywords"
+	//			... Under Construction
 	
 	readEntryFromCSVs($index) {
 		$basePath = "C:\\Users\\pvanh\\Documents\\NetBeansProjects\\dataSources\\";
