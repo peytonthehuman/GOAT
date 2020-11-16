@@ -66,7 +66,7 @@ public class SearchListController {
         ProfileController pc = loader.getController();
                    
         pc.setUser(user);
-            
+        pc.initData(user);    
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             
        
@@ -89,7 +89,7 @@ public class SearchListController {
         ProfileController pc = loader.getController();
                    
         pc.setUser(user);
-            
+        pc.initData(user);    
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             
        

@@ -82,7 +82,7 @@ public class HomeController {
         ProfileController pc = loader.getController();
                    
         pc.setUser(user);
-            
+        pc.initData(user);    
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             
        
