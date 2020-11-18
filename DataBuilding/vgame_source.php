@@ -68,22 +68,26 @@
 	}
 	
 	function writeVgame($id, $title, $release, $consoleArray, $genreArray, $keywordArray) {
-		global $wmddb, $wvgdb, $genreFile;
+		global $wmddb, $wvgdb, $genreFile, $index;
 		writeLinetoDB($wmddb,
-			[rtrim($id),
+			[$index,
+			 rtrim($id),
 			 rtrim($title),
 			 rtrim($release),
 			 '3',
 			 'NA']);
 		
 		writeLinetoDB($wvgdb,
-			[rtrim($id),
+			[$index,
+			 rtrim($id),
 			 rtrim($duration),
 			 $consoleArray]);
 			 
 		foreach($genreArray as $genre) {
-			writeLinetoDB($genreFile, [$id, $genre]);
+			writeLinetoDB($genreFile, [$index, $id, $genre]);
 		}
+		
+		$index++;
 	}
 	
 	function parseVgameData() {

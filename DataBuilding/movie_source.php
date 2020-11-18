@@ -21,23 +21,27 @@
 	}
 	
 	function writeMovie($id, $title, $release, $duration, $prodArray, $actArray, $genreArray, $keywordArray) {
-		global $wmddb, $wmvdb, $genreFile;
+		global $wmddb, $wmvdb, $genreFile, $index;
 		writeLinetoDB($wmddb,
-			[rtrim($id),
+			[$index,
+			 rtrim($id),
 			 rtrim($title),
 			 rtrim($release),
 			 '2',
 			 'NA']);
 		
 		writeLinetoDB($wmvdb,
-			[rtrim($id),
+			[$index,
+			 rtrim($id),
 			 rtrim($duration),
 			 'NA',
 			 'NA']);
 			 
 		foreach($genreArray as $genre) {
-			writeLinetoDB($genreFile, [$id, $genre]);
+			writeLinetoDB($genreFile, [$index, $id, $genre]);
 		}
+		
+		$index++;
 	}
 	
 	function parseMovieData() {

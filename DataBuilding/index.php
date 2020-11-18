@@ -1,6 +1,7 @@
 <?php
 	# Setup
 	$dataSourcePath = "..\\..\\dataSources\\";
+	$index = 0;
 	
 	$genreOccArray = array();
 	$keywordOccArray = array();

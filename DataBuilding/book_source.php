@@ -311,22 +311,26 @@
 	}
 	
 	function writeBook($id, $title, $release, $author, $numPages, $genreArray, $keywordArray) {  // Fix these params
-		global $wmddb, $wbdb, $genreFile;
+		global $wmddb, $wbdb, $genreFile, $index;
 		writeLinetoDB($wmddb,
-			[rtrim($id),
+			[$index,
+			 rtrim($id),
 			 rtrim($title),
 			 rtrim($release),
 			 '1',
 			 'NA']);
 		
 		writeLinetoDB($wbdb,
-			[rtrim($id),
+			[$index,
+			 rtrim($id),
 			 rtrim($author),
 			 $numPages]);
 			 
 		foreach($genreArray as $genre) {
-			writeLinetoDB($genreFile, [$id, $genre]);
+			writeLinetoDB($genreFile, [$index, $id, $genre]);
 		}
+		
+		$index++;
 	}
 	
 	function parseAllBookCollections() {

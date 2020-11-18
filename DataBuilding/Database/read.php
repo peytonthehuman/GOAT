@@ -23,13 +23,13 @@
 	//		"Keywords"
 	//			... Under Construction
 	
-	readEntryFromCSVs($index) {
-		$basePath = "C:\\Users\\pvanh\\Documents\\NetBeansProjects\\dataSources\\";
-		$media = fopen($basePath . "media.csv", 'r');
-		$genre = fopen($basePath . "genre.csv", 'r');
-		$movie = fopen($basePath . "movie.csv", 'r');
-		$book  = fopen($basePath . "book.csv", 'r');
-		$vgame = fopen($basePath . "vgame.csv", 'r');
+	function readEntryFromCSVs($index) {
+		$dataPath = "C:\\Users\\pvanh\\Documents\\NetBeansProjects\\dataSources\\";
+		$media = fopen($dataPath . "media.csv", 'r');
+		$genre = fopen($dataPath . "genre.csv", 'r');
+		$movie = fopen($dataPath . "movie.csv", 'r');
+		$book  = fopen($dataPath . "book.csv", 'r');
+		$vgame = fopen($dataPath . "vgame.csv", 'r');
 		
 		for($i = 0; $i < $index; $i ++) {
 			fgets($media);
@@ -80,7 +80,7 @@
 		return $retVal;
 	}
 	
-	seekToIndex($file, $index, $length = 0, $col = 0) {
+	function seekToIndex($file, $index, $length = 0, $col = 0) {
 		while(true) {
 			$array = fgetcsv($file, $length, '|');
 			if($array == false) {
