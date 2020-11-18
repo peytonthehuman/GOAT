@@ -5,9 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -28,17 +25,17 @@
             </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <TextField fx:id="searchTextField" onAction="#onSearchEntered" promptText="Go on and try!" />
+                  <Button mnemonicParsing="false" onAction="#onProfilePressed" text="Profile" />
                </graphic>
             </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <SplitMenuButton mnemonicParsing="false" onAction="#onProfilePressed" text="Profile">
-                     <items>
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" onAction="#onLogoutPressed" text="Log Out" />
-                     </items>
-                  </SplitMenuButton>
+                  <TextField fx:id="searchTextField" onAction="#onSearchEntered" prefWidth="300.0" promptText="Go on and try!" />
+               </graphic>
+            </Menu>
+            <Menu mnemonicParsing="false">
+               <graphic>
+                  <Button mnemonicParsing="false" onAction="#onLogoutPressed" text="Logout" />
                </graphic>
             </Menu>
          </menus>
@@ -58,7 +55,7 @@
                   <Insets />
                </VBox.margin>
             </ImageView>
-            <Button mnemonicParsing="false" prefWidth="75.0" text="Edit Photo" />
+            <Button mnemonicParsing="false" onAction="#changeProfilePhoto" prefWidth="75.0" text="Edit Photo" />
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                <children>
                   <Label text="User Info:">

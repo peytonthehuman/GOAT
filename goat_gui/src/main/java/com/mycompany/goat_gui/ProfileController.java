@@ -145,8 +145,21 @@ public class ProfileController  {
           window.show();
     }
     
+   
+    /**
+     * Logout Function
+     */
+    public void onLogoutPressed(ActionEvent event) throws IOException {
+        Parent logoutParent = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene logoutScene = new Scene(logoutParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(logoutScene);
+        window.show();
+    }
     
-  
+    
     
     
     
@@ -205,7 +218,7 @@ public class ProfileController  {
      * Change Photo Functions
      */
     public void changeProfilePhoto(ActionEvent event) throws Exception{
-        Parent photoParent = FXMLLoader.load(getClass().getResource("mediaItem.fxml"));
+        Parent photoParent = FXMLLoader.load(getClass().getResource("profilePhotos.fxml"));
         Scene photoScene = new Scene(photoParent);
         
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -280,18 +293,6 @@ public class ProfileController  {
        
          
         window.setScene(profileScene);
-        window.show();
-    }
-    /**
-     * Logout Function
-     */
-    public void onLogoutPressed(ActionEvent event) throws IOException {
-        Parent logoutParent = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene logoutScene = new Scene(logoutParent);
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(logoutScene);
         window.show();
     }
 }
