@@ -13,7 +13,7 @@
 	
 	function printParseNextBook($printbool) {
 		global $bookSourcesConnArray;
-		$retVar = parseNextXMLRecordAsBook($bookSourcesConnArray["LOC"]);
+		$retVar = parseNextXMLRecordAsBook($bookSourcesConnArray["01"]);
 		if($printbool) print_r($retVar);
 		return $retVar;
 	}

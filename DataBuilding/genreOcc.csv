@@ -1,7 +1,7 @@
 GENRE|OCCURANCE|
 Romance|41266|
 Biography|14555|
-Drama|197767|
+Drama|200510|
 \N|69502|
 Crime|31655|
 Adventure|29529|
@@ -24,7 +24,7 @@ Animation|7116|
 Musical|9316|
 Film-Noir|766|
 News|1450|
-Adult|93|
+Adult|4173|
 Reality-TV|277|
 Game-Show|17|
 Talk-Show|105|
@@ -52,18 +52,21 @@ Nudity|20|
 Violent|62|
 Gore|43|
 Sexual Content|10|
-Non fiction|47766|
-Fiction|13292|
-Juvenile|2060|
-Primary School|2637|
-Pre-adolescent|1720|
-Preschool|932|
-Adolescent|136|
-Mixed|10|
-Novel|58|
-Filmography|49|
-Poetry|84|
-General|35|
-Humor|5|
-Short Story|7|
-Essay|2|
+Fiction|370631|
+Non fiction|949428|
+Primary School|32718|
+Pre-adolescent|22972|
+Preschool|11842|
+Juvenile|152295|
+Adolescent|8264|
+Mixed|261|
+Novel|9383|
+Filmography|695|
+Poetry|3702|
+General|1033|
+Humor|146|
+Short Story|1330|
+Essay|199|
+Comic/Graphic Novel|5013|
+Letter|37|
+Speech|23|

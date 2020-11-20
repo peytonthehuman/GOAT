@@ -39,6 +39,8 @@
 			throw new Exception("Record Misalignment:\n" . $recordString, 42);
 		}
 		
+		$hasISBN = false;
+		
 		do {
 			$tempRecordString = readNextLineFromDB($file);
 			$recordString .= $tempRecordString;
@@ -244,10 +246,8 @@
 			foreach($recordXML->datafield as $dataRecord) {
 				// ISBN or other ID
 				if($dataRecord['tag'] == '020') {
-					if(strlen((string)$dataRecord->subfield[0]) < 10) {
-						return 0;
-					}
-					$retObj["id"] = (string)$dataRecord->subfield[0];//substr($dataRecord->subfield[0], 0, 10);
+					$hasISBN = true;
+					$retObj["id"] = explode(' ', (string)$dataRecord->subfield[0])[0];//substr($dataRecord->subfield[0], 0, 10);
 				}
 				
 				// Title
@@ -304,7 +304,11 @@
 			
 			$retObj["genres"] = array_unique($genreArray);
 			
-			return $retObj;
+			if($hasISBN) {
+				return $retObj;
+			} else {
+				return 0;
+			}
 		} else {
 			return 0;
 		}
