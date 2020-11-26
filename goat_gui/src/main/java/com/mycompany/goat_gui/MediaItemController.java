@@ -98,6 +98,9 @@ public class MediaItemController {
         window.show();
     }
     
+    /**
+     * Logout function
+     */
     public void onLogoutPressed(ActionEvent event) throws IOException {
         Parent profileParent = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene profileScene = new Scene(profileParent);
@@ -106,5 +109,43 @@ public class MediaItemController {
         
         window.setScene(profileScene);
         window.show();
+    }
+    
+     /**
+     * Media Item Functions
+     */
+    public void onMediaItemPressed(ActionEvent event) throws Exception {
+        
+          FXMLLoader loader = new FXMLLoader();
+          loader.setLocation(getClass().getResource("mediaItem.fxml"));
+                    
+          Parent mediaParent = loader.load();
+                    
+          System.out.println("---------" + user.getUsername());   //debug        
+            
+                    
+          Scene mediaScene = new Scene(mediaParent);
+                    
+          MediaItemController mc = loader.getController();
+                   
+          mc.setUser(user);
+            
+          Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            
+       
+                    
+          window.setScene(mediaScene);
+          window.show();
+        
+        
+        /*
+        Parent mediaParent = FXMLLoader.load(getClass().getResource("mediaItem.fxml"));
+        Scene mediaScene = new Scene(mediaParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(mediaScene);
+        window.show();
+        */
     }
 }

@@ -10,30 +10,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.goat_gui.SignupController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="475.0" prefWidth="700.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.goat_gui.SignupController">
    <children>
-      <SplitPane dividerPositions="0.2638190954773869" layoutX="157.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.22151898734177214" layoutX="157.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background">
                <children>
-                  <Label layoutX="6.0" layoutY="25.0" text="Get Yer'self a G.O.A.T. Free of Charge">
+                  <Label layoutX="15.0" layoutY="20.0" styleClass="label-header" text="Get Yer'self a G.O.A.T. Free of Charge">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Label>
-                  <Label layoutX="247.0" layoutY="80.0" text="*While supplies last." />
+                  <Label layoutX="283.0" layoutY="78.0" text="*While supplies last." />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" styleClass="background">
                <children>
-                  <GridPane layoutX="178.0" layoutY="78.0" prefHeight="290.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <GridPane hgap="10.0" layoutX="178.0" layoutY="78.0" prefHeight="291.0" prefWidth="700.0" vgap="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="245.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="293.0" minWidth="10.0" prefWidth="293.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="383.0" minWidth="10.0" prefWidth="288.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="409.0" minWidth="10.0" prefWidth="382.0" />
                     </columnConstraints>
                     <rowConstraints>
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -45,47 +45,48 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label text="Email:">
+                        <Label styleClass="label-header" text="Email:">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
                         <TextField fx:id="emailTextField" promptText="email" GridPane.columnIndex="1" />
-                        <Label text="Username:" GridPane.rowIndex="1">
+                        <Label styleClass="label-header" text="Username:" GridPane.rowIndex="1">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
                         <TextField fx:id="usernameTextField" promptText="username" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label text="Password:" GridPane.rowIndex="2">
+                        <Label styleClass="label-header" text="Password:" GridPane.rowIndex="2">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
                         <PasswordField fx:id="passwordPassField" promptText="password" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label text="FirstName:" GridPane.rowIndex="3">
+                        <Label styleClass="label-header" text="FirstName:" GridPane.rowIndex="3">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
                         <TextField fx:id="firstNameTextField" promptText="first name" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label text="Last Name:" GridPane.rowIndex="4">
+                        <Label styleClass="label-header" text="Last Name:" GridPane.rowIndex="4">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
                         <TextField fx:id="lastNameTextField" promptText="last name" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label text="Birthday:" GridPane.rowIndex="5">
+                        <Label styleClass="label-header" text="Birthday:" GridPane.rowIndex="5">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
                         <DatePicker fx:id="birthdayPicker" promptText="birthday" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                        <HBox alignment="CENTER" spacing="50.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#createProfile" text="Sign Up" />
+                              <Button defaultButton="true" mnemonicParsing="false" onAction="#createProfile" text="Sign Up" />
+                              <Button mnemonicParsing="false" onAction="#backToLoginPressed" prefWidth="99.0" text="Login" />
                            </children>
-                        </VBox>
+                        </HBox>
                         <Label fx:id="errorTextField" textFill="RED" GridPane.rowIndex="6">
                            <font>
                               <Font size="14.0" />
@@ -93,7 +94,7 @@
                         </Label>
                      </children>
                      <padding>
-                        <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+                        <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
                      </padding>
                   </GridPane>
                </children>

@@ -196,7 +196,15 @@ public class SignupController {
        
     }
      
-     
+    public void backToLoginPressed(ActionEvent event) throws IOException {
+        Parent logoutParent = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Scene logoutScene = new Scene(logoutParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(logoutScene);
+        window.show();
+    }
     
 
 }

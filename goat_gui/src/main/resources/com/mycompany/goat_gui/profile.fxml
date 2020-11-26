@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.goat_gui.ProfileController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.goat_gui.ProfileController">
    <top>
       <MenuBar maxHeight="-Infinity" prefHeight="45.0" prefWidth="1000.0" BorderPane.alignment="TOP_LEFT">
          <menus>
@@ -30,7 +30,7 @@
             </Menu>
             <Menu mnemonicParsing="false">
                <graphic>
-                  <TextField fx:id="searchTextField" onAction="#onSearchEntered" prefWidth="300.0" promptText="Go on and try!" />
+                  <TextField fx:id="searchTextField" onAction="#onSearchEntered" prefWidth="300.0" promptText="Go on and try!" styleClass="left-container" />
                </graphic>
             </Menu>
             <Menu mnemonicParsing="false">
@@ -48,17 +48,17 @@
       </MenuBar>
    </top>
    <left>
-      <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="190.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="190.0" spacing="10.0" styleClass="table-view" BorderPane.alignment="CENTER">
          <children>
             <ImageView fx:id="photo" fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#changeProfilePhoto" prefWidth="75.0" text="Edit Photo" />
+            <Button mnemonicParsing="false" onAction="#changeProfilePhoto" prefWidth="120.0" text="Edit Photo" />
             <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
                <children>
-                  <Label text="User Info:">
+                  <Label styleClass="label-header" text="User Info:">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -88,7 +88,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button fx:id="detailedMediaView" mnemonicParsing="false" onAction="#changeScreenToMediaItem" prefHeight="40.0" prefWidth="100.0" text="Media Info">
+                  <Button fx:id="detailedMediaView" mnemonicParsing="false" onAction="#changeScreenToMediaItem" prefHeight="50.0" prefWidth="120.0" text="Media Info">
                      <font>
                         <Font size="15.0" />
                      </font>
