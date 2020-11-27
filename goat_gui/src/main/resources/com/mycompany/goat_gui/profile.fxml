@@ -9,7 +9,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -105,9 +104,10 @@
       </VBox>
    </left>
    <center>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+      <VBox alignment="TOP_CENTER" prefHeight="545.0" prefWidth="800.0" styleClass="background">
          <children>
-            <TableView fx:id="tableView" onMouseClicked="#userClickedOnTable" prefHeight="516.0" prefWidth="810.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label styleClass="label-header" text="Saved Media List" />
+            <TableView fx:id="tableView" onMouseClicked="#userClickedOnTable" prefHeight="516.0" prefWidth="810.0">
                <columns>
                   <TableColumn fx:id="coverArtColumn" prefWidth="124.0" text="Cover Art" />
                   <TableColumn fx:id="titleColumn" prefWidth="186.0" text="Title" />
@@ -120,6 +120,6 @@
                </columnResizePolicy>
             </TableView>
          </children>
-      </AnchorPane>
+      </VBox>
    </center>
 </BorderPane>

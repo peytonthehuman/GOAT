@@ -111,10 +111,11 @@ public class MediaItemController {
         window.show();
     }
     
+    
      /**
      * Media Item Functions
      */
-    public void onMediaItemPressed(ActionEvent event) throws Exception {
+    public void mediaItemPressed(ActionEvent event) throws Exception {
         
           FXMLLoader loader = new FXMLLoader();
           loader.setLocation(getClass().getResource("mediaItem.fxml"));
@@ -137,15 +138,5 @@ public class MediaItemController {
           window.setScene(mediaScene);
           window.show();
         
-        
-        /*
-        Parent mediaParent = FXMLLoader.load(getClass().getResource("mediaItem.fxml"));
-        Scene mediaScene = new Scene(mediaParent);
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(mediaScene);
-        window.show();
-        */
     }
 }

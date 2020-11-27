@@ -159,25 +159,7 @@ public class ProfileController  {
         window.show();
     }
     
-    
-    
-    
-    
-    /**
-     * 
-     * These functions are used to traverse from one window to
-     * the next depending on the action the user chooses.
-     * 
-     * ALERT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     * SOME ARE BOUND TO CHANGE ONCE MORE THINGS ARE IMPLEMENTED.
-     * They are only put here for organizational purposes to make code
-     * easier to look through until delved into further
-     * 
-     */
-    
-    
-    
-    /**
+        /**
      * Media Item Functions
      */
     public void changeScreenToMediaItem(ActionEvent event) throws Exception {
@@ -214,19 +196,8 @@ public class ProfileController  {
         window.show();
         */
     }
-    /**
-     * Change Photo Functions
-     */
-    public void changeProfilePhoto(ActionEvent event) throws Exception{
-        Parent photoParent = FXMLLoader.load(getClass().getResource("profilePhotos.fxml"));
-        Scene photoScene = new Scene(photoParent);
-        
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-        
-        window.setScene(photoScene);
-        window.show();
-    }
-    /**
+    
+     /**
      * Home Functions 
      */
     public void onHomePressed(ActionEvent event) throws IOException { 
@@ -270,6 +241,37 @@ public class ProfileController  {
         */
         
     }
+    
+    
+    
+    /**
+     * 
+     * These functions are used to traverse from one window to
+     * the next depending on the action the user chooses.
+     * 
+     * ALERT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     * SOME ARE BOUND TO CHANGE ONCE MORE THINGS ARE IMPLEMENTED.
+     * They are only put here for organizational purposes to make code
+     * easier to look through until delved into further
+     * 
+     */
+    
+    
+    
+
+    /**
+     * Change Photo Functions
+     */
+    public void changeProfilePhoto(ActionEvent event) throws Exception{
+        Parent photoParent = FXMLLoader.load(getClass().getResource("profilePhotos.fxml"));
+        Scene photoScene = new Scene(photoParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(photoScene);
+        window.show();
+    }
+ 
     /**
      * Search Functions
      */

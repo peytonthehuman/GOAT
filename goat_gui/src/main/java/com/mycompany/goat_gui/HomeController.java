@@ -146,4 +146,33 @@ public class HomeController {
         window.setScene(profileScene);
         window.show();
     }
+    
+     /**
+     * Media Item Functions
+     */
+    public void mediaItemPressed(ActionEvent event) throws Exception {
+        
+          FXMLLoader loader = new FXMLLoader();
+          loader.setLocation(getClass().getResource("mediaItem.fxml"));
+                    
+          Parent mediaParent = loader.load();
+                    
+          System.out.println("---------" + user.getUsername());   //debug        
+            
+                    
+          Scene mediaScene = new Scene(mediaParent);
+                    
+          MediaItemController mc = loader.getController();
+                   
+          mc.setUser(user);
+            
+          Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            
+       
+                    
+          window.setScene(mediaScene);
+          window.show();
+        
+    }
+   
 }
