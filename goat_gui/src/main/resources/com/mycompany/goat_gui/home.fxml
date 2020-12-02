@@ -55,10 +55,8 @@
                      <children>
                         <TableView prefHeight="241.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
-                            <TableColumn prefWidth="75.0" text="Photo" />
                             <TableColumn prefWidth="75.0" text="Title" />
                               <TableColumn prefWidth="75.0" text="Genre(s)" />
-                              <TableColumn prefWidth="75.0" text="Description" />
                               <TableColumn prefWidth="75.0" text="Rating" />
                           </columns>
                            <columnResizePolicy>
@@ -77,10 +75,8 @@
                      <children>
                         <TableView prefHeight="241.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="Photo" />
                               <TableColumn prefWidth="75.0" text="Title" />
                               <TableColumn prefWidth="75.0" text="Genre(s)" />
-                              <TableColumn prefWidth="75.0" text="Description" />
                               <TableColumn prefWidth="75.0" text="Rating" />
                            </columns>
                            <columnResizePolicy>
@@ -100,10 +96,8 @@
                      <children>
                         <TableView prefHeight="241.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="Photo" />
                               <TableColumn prefWidth="75.0" text="Title" />
                               <TableColumn prefWidth="75.0" text="Genre(s)" />
-                              <TableColumn prefWidth="75.0" text="Description" />
                               <TableColumn prefWidth="75.0" text="Rating" />
                            </columns>
                            <columnResizePolicy>
@@ -123,10 +117,8 @@
                      <children>
                         <TableView prefHeight="241.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="Photo" />
                               <TableColumn prefWidth="75.0" text="Title" />
                               <TableColumn prefWidth="75.0" text="Genre(s)" />
-                              <TableColumn prefWidth="75.0" text="Description" />
                               <TableColumn prefWidth="75.0" text="Rating" />
                            </columns>
                            <columnResizePolicy>
@@ -146,10 +138,8 @@
                      <children>
                         <TableView prefHeight="241.0" prefWidth="598.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="Photo" />
                               <TableColumn prefWidth="75.0" text="Title" />
                               <TableColumn prefWidth="75.0" text="Genre(s)" />
-                              <TableColumn prefWidth="75.0" text="Description" />
                               <TableColumn prefWidth="75.0" text="Rating" />
                            </columns>
                            <columnResizePolicy>

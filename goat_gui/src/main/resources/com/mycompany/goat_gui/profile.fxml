@@ -47,7 +47,7 @@
       </MenuBar>
    </top>
    <left>
-      <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="190.0" spacing="10.0" styleClass="table-view" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="300.0" spacing="10.0" styleClass="table-view" BorderPane.alignment="CENTER">
          <children>
             <ImageView fx:id="photo" fitHeight="175.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
                <VBox.margin>
@@ -109,10 +109,8 @@
             <Label styleClass="label-header" text="Saved Media List" />
             <TableView fx:id="tableView" onMouseClicked="#userClickedOnTable" prefHeight="516.0" prefWidth="810.0">
                <columns>
-                  <TableColumn fx:id="coverArtColumn" prefWidth="124.0" text="Cover Art" />
                   <TableColumn fx:id="titleColumn" prefWidth="186.0" text="Title" />
                   <TableColumn fx:id="genreColumn" prefWidth="75.0" text="Genre(s)" />
-                  <TableColumn fx:id="descriptionColumn" prefWidth="75.0" text="Description" />
                   <TableColumn fx:id="ratingColumn" prefWidth="75.0" text="Rating" />
                </columns>
                <columnResizePolicy>
