@@ -19,12 +19,10 @@
 	//			// If Media_Type == 3
 	//			"Console"
 	//		"Genres"
-	//			... Under Construction
-	//		"Keywords"
-	//			... Under Construction
+	//			0, 1, 2
 	
 	function readEntryFromCSVs($index) {
-		$dataPath = "C:\\Users\\pvanh\\Documents\\NetBeansProjects\\dataSources\\";
+		$dataPath = "C:\\Users\\Peyton\\Documents\\NetBeansProjects\\dataSources\\";
 		$media = fopen($dataPath . "media.csv", 'r');
 		$genre = fopen($dataPath . "genre.csv", 'r');
 		$movie = fopen($dataPath . "movie.csv", 'r');
@@ -69,6 +67,18 @@
 				throw new Exception("Entry " . $index . " not found in vgame database.");
 			}
 			$retVal["Secondary"]["Console"] = $indEntry[2];
+		}
+		
+		$line = seekToIndex($genre, $index);
+		if($line == false) {
+			throw new Exception("Entry " . $index . " not found in genre table.");
+		} else {
+			$genreIdx = 0;
+			do {
+				$retVal["Genres"][$genreIdx] = $line[2];
+				$line = fgetcsv($genre, 90, '|');
+				$genreIdx++;
+			} while($line[0] == $index);
 		}
 		
 		fclose($media);
