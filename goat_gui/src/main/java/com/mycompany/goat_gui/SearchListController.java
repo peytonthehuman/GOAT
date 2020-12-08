@@ -86,10 +86,10 @@ public class SearchListController {
                     
         Scene profileScene = new Scene(profileParent);
                     
-        ProfileController pc = loader.getController();
+        SearchListController pc = loader.getController();
                    
         pc.setUser(user);
-        pc.initData(user);    
+        //pc.initData(user);    
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             
        

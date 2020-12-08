@@ -48,6 +48,7 @@ public class ProfileController  {
     
     public void initData(User u){
         user = u;
+        
         usernameLabel.setText(user.getUsername());
         emailLabel.setText(user.getEmail());
         nameLabel.setText(user.getFullName());
@@ -83,10 +84,13 @@ public class ProfileController  {
     
     public ObservableList<Media> getDummyMedia(){
         ObservableList<Media> media = FXCollections.observableArrayList();
-        media.add(new Media(new Image("file:C:\\Users\\Sean\\Documents\\NetBeansProjects\\GOAT\\goat_gui\\src\\main\\java\\images\\sassy_goat.jpg"), "dummyTitle", "dummy", "dumdum give me gumgum", 5));
-        media.add(new Media("Human Centipede", "Horror", "Fun movie with tender moments. Great for children. Trust me", 0));
-        media.add(new Media("Marley and Me", "Pupper", "You're either laughing or crying the whole time. There is no inbetween.", 10));
+     //   media.add(new Media(new Image("file:C:\\Users\\Sean\\Documents\\NetBeansProjects\\GOAT\\goat_gui\\src\\main\\java\\images\\sassy_goat.jpg"), "dummyTitle", "dummy", "dumdum give me gumgum", 5));
+     //   media.add(new Media("Human Centipede", "Horror", "Fun movie with tender moments. Great for children. Trust me", 0));
+       // media.add(new Media("Marley and Me", "Pupper", "You're either laughing or crying the whole time. There is no inbetween.", 10));
         
+       
+       
+       
         return media;
     }
     
@@ -286,7 +290,7 @@ public class ProfileController  {
                     
         Scene profileScene = new Scene(profileParent);
                     
-        ProfileController pc = loader.getController();
+        SearchListController pc = loader.getController();
                    
         pc.setUser(user);
             
