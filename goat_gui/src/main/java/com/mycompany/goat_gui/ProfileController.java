@@ -1,8 +1,18 @@
 package com.mycompany.goat_gui;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.StringJoiner;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,40 +30,79 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public class ProfileController  {
+public class ProfileController implements Initializable {
 
-    @FXML private TextField searchTextField;
-    private User user;
     
-    public void setUser(User u)
-    {
-        user = u;
-        
-    }
-      
-    
-    /**
-     * Profile Information Display Functions
-     */
     
     @FXML private Label usernameLabel;
     @FXML private Label emailLabel;
     @FXML private Label nameLabel;
     @FXML private Label birthdayLabel;
     @FXML private ImageView photo;
+    @FXML private TextField searchTextField;
+   
+    Pane apane;
     
-    public void initData(User u){
+    private ArrayList<Media> movies = new ArrayList<>();
+    private User user;
+    private int id;
+
+    
+    public void setUser(User u)
+    {
         user = u;
         
+    
+    }
+    
+    public ProfileController()
+    {
+        
+    }
+      
+    public ProfileController(User u) throws IOException
+    {
+        user = u;
+          FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
+   loader.setControllerFactory(type -> {
+       if (type == ProfileController.class) {
+           return this ;
+       } else {
+           try {
+               return type.newInstance();
+           } catch (RuntimeException e) {
+               throw e ;
+           } catch (Exception e) {
+               throw new RuntimeException(e);
+           }
+       }
+   });
+   Parent root = loader.load();
+   Stage stage = new Stage();
+   stage.setScene(new Scene(root));
+   stage.show();
+    }
+    
+    /**
+     * Profile Information Display Functions
+     */
+    
+    
+    public void initData(User u) throws IOException, JSONException {
+        //user = u;
         usernameLabel.setText(user.getUsername());
         emailLabel.setText(user.getEmail());
         nameLabel.setText(user.getFullName());
         birthdayLabel.setText(user.getBirthday());
         photo.setImage(user.getImage());
+        //movies = getMovies();
+        
     }
   
     
@@ -82,12 +131,18 @@ public class ProfileController  {
      * Initialize (Dummy Information)
      */    
     
-    public ObservableList<Media> getDummyMedia(){
+    public ObservableList<Media> getMedia() throws IOException, JSONException {
         ObservableList<Media> media = FXCollections.observableArrayList();
      //   media.add(new Media(new Image("file:C:\\Users\\Sean\\Documents\\NetBeansProjects\\GOAT\\goat_gui\\src\\main\\java\\images\\sassy_goat.jpg"), "dummyTitle", "dummy", "dumdum give me gumgum", 5));
      //   media.add(new Media("Human Centipede", "Horror", "Fun movie with tender moments. Great for children. Trust me", 0));
        // media.add(new Media("Marley and Me", "Pupper", "You're either laughing or crying the whole time. There is no inbetween.", 10));
-        
+
+       
+         movies = getMovies();
+        for(int i =0; i < movies.size();i++)
+        {
+            media.add(movies.get(i));
+        }
        
        
        
@@ -97,36 +152,36 @@ public class ProfileController  {
     // Old Image
     // private Image dummyImage = new Image("file:C:\\Users\\Sean\\Documents\\NetBeansProjects\\GOAT\\goat_gui\\src\\main\\java\\images\\ya_got_some_candy_goat.jpg");
     
-    private Image dummyImage = new Image("http://i.stack.imgur.com/Hbnkb.png");
+    //private Image dummyImage = new Image("http://i.stack.imgur.com/Hbnkb.png");
     
-    /*
+    
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        coverArtColumn.setCellValueFactory(new PropertyValueFactory<Media, Image>("coverArt"));
+     //   coverArtColumn.setCellValueFactory(new PropertyValueFactory<Media, Image>("coverArt"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
-        genreColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("genre"));
-        descriptionColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("description"));
-        ratingColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("rating"));
-        
-        //load dummy data
-        //MAKE SURE TO DELETE ONCE WE GET DATA FLOWING
-        tableView.setItems(getDummyMedia());
+        genreColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("numOfGeneres"));
+       // descriptionColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("description"));
+        //ratingColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("rating"));
+        try {
+            //load dummy data
+            //MAKE SURE TO DELETE ONCE WE GET DATA FLOWING
+          //  movies = getMovies();
+            tableView.setItems(getMedia());
+        } catch (IOException | JSONException ex) {
+            ex.printStackTrace();
+        }
                 
-        usernameLabel.setText("dummyUser");
-        emailLabel.setText("dummyEmail");
-        nameLabel.setText("dummy");
-        birthdayLabel.setText("");
-        photo.setImage(dummyImage);
+       
         
 
         //Disable the detailed media view button until a row is selected
         this.detailedMediaView.setDisable(true);
     }
-    */
+    
      /**
      * Load Profile Window
      */
-    public void onProfilePressed(ActionEvent event) throws IOException{
+    public void onProfilePressed(ActionEvent event) throws IOException, JSONException{
           FXMLLoader loader = new FXMLLoader();
           loader.setLocation(getClass().getResource("profile.fxml"));
                     
@@ -301,5 +356,128 @@ public class ProfileController  {
         window.setScene(profileScene);
         window.show();
     }
+    
+    
+    
+     private ArrayList<Media> getMovies() throws IOException, JSONException
+    {
+        
+        ArrayList<Media> moviesM = new ArrayList<>();
+        URL url = new URL("http://www.peytonlwhite.com/blog/getmoviesfromuser/");
+       
+
+       
+        HttpURLConnection http = (HttpURLConnection) url.openConnection();
+        http.setRequestMethod("POST"); 
+        http.setDoOutput(true);
+        
+        
+        Map<String,String> arguments = new HashMap<>();
+        arguments.put("user_id", Integer.toString(user.getId()));
+       //arguments.put("password", password); 
+         
+
+        StringJoiner sj = new StringJoiner("&");
+        for(Map.Entry<String,String> entry : arguments.entrySet())
+        sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "=" 
+          + URLEncoder.encode(entry.getValue(), "UTF-8"));
+        
+        byte[] out = sj.toString().getBytes(StandardCharsets.UTF_8);
+        int length = out.length;
+       
+       
+        
+        try(OutputStream os = http.getOutputStream()) 
+        {
+            os.write(out);
+        }
+        
+        
+       // http.setFixedLengthStreamingMode(length);
+       // http.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+       // http.connect();
+        
+        
+        // Get the response
+        BufferedReader rd = new BufferedReader(new InputStreamReader(http.getInputStream()));
+        String line;
+        StringBuilder jsonString = new StringBuilder();
+        
+        
+        
+        while ((line = rd.readLine()) != null) {
+        //System.out.println(line);
+        //convert into json string format
+        jsonString.append(line);
+
+        }
+        rd.close();
+        System.out.println("after to while" + jsonString.toString());
+        //convert into json obejct for reading 
+        
+        JSONObject jsonObj = new JSONObject(jsonString.toString());
+        //JSONArray jsonArr = new JSONArray(jsonString.toString());
+        
+       
+         
+       System.out.println("---------------------------");
+       System.out.println("is sucesssssss " + jsonObj.get("success"));
+      // System.out.println("is Movie " + jsonObj.get("movieid"));
+       System.out.println("is Movie " + jsonObj.get("movie"));
+
+       
+       String s = (String) jsonObj.get("success");
+       
+       
+       
+       if(s.equals("1"))
+       {
+           //get json array login out of the object and parse through it
+            JSONArray jsonArr = jsonObj.getJSONArray("movie");
+            
+            System.out.println("1E " + jsonArr); //debug
+            String id =null;
+            String title = null;
+            String date_r = null;
+            String num_of_generes = null;
+          
+            
+            for(int i = 0 ; i<jsonArr.length();i++)
+            {
+                JSONObject item = jsonArr.getJSONObject(i);  
+                id = item.getString("Media_Id");
+                title = item.getString("Title");
+                date_r = item.getString("Date_Released");
+                num_of_generes = item.getString("num_of_generes");
+                
+                //add data to a object with media data(movies)
+                Media m = new Media(title,id,date_r,num_of_generes);
+                moviesM.add(m);
+                System.out.println("testttt" + m.getTitle()); 
+            
+              
+            }
+           //debug
+            
+            
+            
+          
+            
+            //set user info with constructor
+            //user = new User(Integer.valueOf(id),u,e,b,fn,ln,pic_Path);
+            
+            //set the array with new data
+
+       }
+       
+       
+       
+       return moviesM;
+    }
+    
+    
+    
+    
+    
 }
 

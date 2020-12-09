@@ -42,7 +42,7 @@ public class MediaTestController {
     }
     
     
-    public void onSubmitPressed(ActionEvent event) throws IOException{
+    public void onSubmitPressed(ActionEvent event) throws IOException, JSONException{
         //Adds ratings to profile
         
         //Sends to profile page
@@ -68,7 +68,7 @@ public class MediaTestController {
         window.show();
     }
     
-    public void onSkipPressed(ActionEvent event) throws IOException{
+    public void onSkipPressed(ActionEvent event) throws IOException, JSONException{
         //Sends to profile page with cold case
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("profile.fxml"));

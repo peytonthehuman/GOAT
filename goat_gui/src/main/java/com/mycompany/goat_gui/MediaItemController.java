@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.json.JSONException;
 
 /**
  *
@@ -52,7 +53,7 @@ public class MediaItemController {
          window.show(); 
     }
     
-    public void onProfilePressed(ActionEvent event) throws IOException{
+    public void onProfilePressed(ActionEvent event) throws IOException, JSONException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("profile.fxml"));
                     

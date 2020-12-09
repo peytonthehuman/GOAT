@@ -80,25 +80,24 @@ public class LoginController {
                 if(check.equals("1"))
                 {
                     FXMLLoader loader = new FXMLLoader();
-                    loader.setLocation(getClass().getResource("profile.fxml"));
-                    
+                    loader.setLocation(getClass().getResource("home.fxml"));
+
                     Parent profileParent = loader.load();
-                    
-                    
-                    
+
+                    System.out.println("---------" + user.getUsername());           
+
                     Scene profileScene = new Scene(profileParent);
-                    
-                    ProfileController pc = loader.getController();
-                   
-                    pc.setUser(user);
-                    pc.initData(user);
-            
+
+                    HomeController hc = loader.getController();
+
+                    hc.setUser(user);
+
                     Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-            
-       
-                    
+
+
+
                     window.setScene(profileScene);
-                    window.show();
+                    window.show(); 
                 }
                 else 
                 {
