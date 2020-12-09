@@ -31,13 +31,14 @@ public class SearchListController {
         
     }
        
-    public void onHomePressed(ActionEvent event) throws IOException {      
+    public void onHomePressed(ActionEvent event) throws IOException {  
          FXMLLoader loader = new FXMLLoader();
          loader.setLocation(getClass().getResource("home.fxml"));
                     
          Parent profileParent = loader.load();
                     
-         System.out.println("---------" + user.getUsername());           
+         System.out.println("---------" + user.getUsername());   //debug        
+           
                     
          Scene profileScene = new Scene(profileParent);
                     
@@ -50,33 +51,42 @@ public class SearchListController {
        
                     
          window.setScene(profileScene);
-         window.show(); 
+         window.show();
     }
     
     public void onProfilePressed(ActionEvent event) throws IOException, JSONException{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("profile.fxml"));
+          FXMLLoader loader = new FXMLLoader();
+          loader.setLocation(getClass().getResource("profile.fxml"));
                     
-        Parent profileParent = loader.load();
+          Parent profileParent = loader.load();
                     
-        System.out.println("---------" + user.getUsername());   //debug        
-
+          System.out.println("---------" + user.getUsername());   //debug        
+            
                     
-        Scene profileScene = new Scene(profileParent);
+          Scene profileScene = new Scene(profileParent);
                     
-        ProfileController pc = loader.getController();
+          ProfileController pc = loader.getController();
                    
-        pc.setUser(user);
-        pc.initData(user);    
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+          pc.setUser(user);
+          pc.initData(user);  
+          Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             
        
-         
-        window.setScene(profileScene);
-        window.show();
+                    
+          window.setScene(profileScene);
+          window.show();
     }
     
     public void onSearchEntered(ActionEvent event) throws IOException {
+        
+        Parent profileParent = FXMLLoader.load(getClass().getResource("searchList.fxml"));
+        Scene profileScene = new Scene(profileParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(profileScene);
+        window.show();
+        /*
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("searchList.fxml"));
                     
@@ -96,7 +106,7 @@ public class SearchListController {
        
          
         window.setScene(profileScene);
-        window.show();
+        window.show();*/
     }
     
     public void onLogoutPressed(ActionEvent event) throws IOException {

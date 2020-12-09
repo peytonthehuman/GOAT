@@ -263,12 +263,6 @@ public class ProfileController implements Initializable {
      */
     public void onHomePressed(ActionEvent event) throws IOException { 
         
-        /**
-         * For whatever reason, this code breaks traversal from one window to the next
-         * on certain instances.
-         * 
-         * Look into why.
-         */
          FXMLLoader loader = new FXMLLoader();
          loader.setLocation(getClass().getResource("home.fxml"));
                     
@@ -337,7 +331,14 @@ public class ProfileController implements Initializable {
      * Search Functions
      */
     public void onSearchEntered(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
+        Parent profileParent = FXMLLoader.load(getClass().getResource("searchList.fxml"));
+        Scene profileScene = new Scene(profileParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(profileScene);
+        window.show();
+        /*FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("searchList.fxml"));
                     
         Parent profileParent = loader.load();
@@ -356,7 +357,7 @@ public class ProfileController implements Initializable {
        
          
         window.setScene(profileScene);
-        window.show();
+        window.show();*/
     }
     
     

@@ -235,7 +235,7 @@ public class HomeController implements Initializable {
     
     public void onSearchEntered(ActionEvent event) throws IOException {
         
-        
+        /*
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("searchList.fxml"));
                     
@@ -256,8 +256,8 @@ public class HomeController implements Initializable {
          
         window.setScene(profileScene);
         window.show();
+        */
         
-        /*
         Parent profileParent = FXMLLoader.load(getClass().getResource("searchList.fxml"));
         Scene profileScene = new Scene(profileParent);
         
@@ -265,7 +265,7 @@ public class HomeController implements Initializable {
         
         window.setScene(profileScene);
         window.show();
-*/
+
     }
     
     public void onLogoutPressed(ActionEvent event) throws IOException {

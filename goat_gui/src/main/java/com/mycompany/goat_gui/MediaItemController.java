@@ -77,7 +77,15 @@ public class MediaItemController {
     }
     
     public void onSearchEntered(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
+        Parent profileParent = FXMLLoader.load(getClass().getResource("searchList.fxml"));
+        Scene profileScene = new Scene(profileParent);
+        
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        
+        window.setScene(profileScene);
+        window.show();
+        
+        /*FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("searchList.fxml"));
                     
         Parent profileParent = loader.load();
@@ -96,7 +104,7 @@ public class MediaItemController {
        
          
         window.setScene(profileScene);
-        window.show();
+        window.show();*/
     }
     
     /**
