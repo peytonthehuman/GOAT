@@ -46,6 +46,9 @@ public class HomeController implements Initializable {
     
     @FXML private TextField searchTextField;
     private User user;
+    
+    private int refresh = 0;
+    
     ArrayList<Media> movies = new ArrayList<>();
 
     
@@ -56,10 +59,13 @@ public class HomeController implements Initializable {
         
     }
     
+   
     @FXML private TableView<Media> movieView;
     //@FXML private TableColumn<Media, Image> coverArtColumn;
     @FXML private TableColumn<Media, String> titleColumn;
     @FXML private TableColumn<Media, String> genreColumn;
+    @FXML private TableColumn<Media, String> dateColumn;
+
     //@FXML private TableColumn<Media, String> descriptionColumn;
     //@FXML private TableColumn<Media, String> ratingColumn;
     
@@ -67,7 +73,6 @@ public class HomeController implements Initializable {
     @FXML
     public void clickItem(MouseEvent event) throws IOException, JSONException
     {
-        System.out.println("sldjnvljksdfnvdfl");
         if (event.getClickCount() == 2) //Checking double click
         {
             System.out.println(movieView.getSelectionModel().getSelectedItem().getTitle()); //debug
@@ -87,8 +92,8 @@ public class HomeController implements Initializable {
          * Will need to figure out why
          */
         
-        
-
+         
+         System.out.println("DEBUG refresh: "+ refresh);
          FXMLLoader loader = new FXMLLoader();
          loader.setLocation(getClass().getResource("home.fxml"));
                     
@@ -126,16 +131,13 @@ public class HomeController implements Initializable {
        //media.add(new Med user.getBirthday();
        
         movies = getMovies();
-        media.add(movies.get(0));
-        media.add(movies.get(1));
-        media.add(movies.get(2));
-        media.add(movies.get(3));
-        media.add(movies.get(4));
-        media.add(movies.get(5));
-        media.add(movies.get(6));
-        media.add(movies.get(7));
-        media.add(movies.get(8));
-        media.add(movies.get(9));
+        
+        for(int i = 0; i < movies.size();i++)
+        {
+            media.add(movies.get(i));
+        
+        }
+        
 
 
         
@@ -156,8 +158,9 @@ public class HomeController implements Initializable {
     
         titleColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
         genreColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("numOfGeneres"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("date_Released"));
+
         //ratingColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("rating"));
-        System.out.println("Helloojskhvbdfhjvbdfsv");
         try {
             //load dummy data
             //MAKE SURE TO DELETE ONCE WE GET DATA FLOWING
@@ -302,8 +305,11 @@ public class HomeController implements Initializable {
                     
           window.setScene(mediaScene);
           window.show();
-        
         */
+     
+        
+        refresh += 10;
+        //reload home + 10
         
         
   

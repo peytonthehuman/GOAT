@@ -112,11 +112,11 @@ public class ProfileController implements Initializable {
     
     //configure the table
     @FXML private TableView<Media> tableView;
-    @FXML private TableColumn<Media, Image> coverArtColumn;
+  //  @FXML private TableColumn<Media, Image> coverArtColumn;
     @FXML private TableColumn<Media, String> titleColumn;
     @FXML private TableColumn<Media, String> genreColumn;
-    @FXML private TableColumn<Media, String> descriptionColumn;
-    @FXML private TableColumn<Media, String> ratingColumn;
+   // @FXML private TableColumn<Media, String> descriptionColumn;
+    @FXML private TableColumn<Media, String> dateColumn;
     
     @FXML private Button detailedMediaView;
     
@@ -160,6 +160,8 @@ public class ProfileController implements Initializable {
      //   coverArtColumn.setCellValueFactory(new PropertyValueFactory<Media, Image>("coverArt"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("title"));
         genreColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("numOfGeneres"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("date_Released"));
+
        // descriptionColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("description"));
         //ratingColumn.setCellValueFactory(new PropertyValueFactory<Media, String>("rating"));
         try {
