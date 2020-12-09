@@ -44,7 +44,7 @@ public class ProfileController implements Initializable {
     @FXML private Label emailLabel;
     @FXML private Label nameLabel;
     @FXML private Label birthdayLabel;
-    @FXML private ImageView photo;
+    //@FXML private ImageView photo;
     @FXML private TextField searchTextField;
    
     Pane apane;
@@ -95,12 +95,12 @@ public class ProfileController implements Initializable {
     
     
     public void initData(User u) throws IOException, JSONException {
-        //user = u;
+        user = u;
         usernameLabel.setText(user.getUsername());
         emailLabel.setText(user.getEmail());
         nameLabel.setText(user.getFullName());
         birthdayLabel.setText(user.getBirthday());
-        photo.setImage(user.getImage());
+        //photo.setImage(user.getImage());
         //movies = getMovies();
         
     }
@@ -174,7 +174,13 @@ public class ProfileController implements Initializable {
         }
                 
        
-        
+        try {
+            initData(user);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } catch (JSONException ex) {
+            ex.printStackTrace();
+        }
 
         //Disable the detailed media view button until a row is selected
         this.detailedMediaView.setDisable(true);

@@ -77,7 +77,7 @@ public class HomeController implements Initializable {
         {
             System.out.println(movieView.getSelectionModel().getSelectedItem().getTitle()); //debug
             putInUser(movieView.getSelectionModel().getSelectedItem().getMedia_Id());
-            
+            System.out.println("prororooror"  + user.getId());
     
         }
     }
@@ -332,7 +332,8 @@ public class HomeController implements Initializable {
         Map<String,String> arguments = new HashMap<>();
         arguments.put("media_id", media_id);
         arguments.put("user_id", Integer.toString(user.getId()));
-        
+         System.out.println("prororooror22222"  + user.getId());
+
 
         
          
